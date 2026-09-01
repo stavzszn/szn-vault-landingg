@@ -9,6 +9,11 @@ const navigation = [
   { label: "FAQ", href: "#faq" },
 ];
 
+const legal = [
+  { label: "Terms and Conditions", href: "#" },
+  { label: "Privacy Policy", href: "#" },
+];
+
 export function Footer() {
   return (
     <footer className="w-full px-6 pb-8 pt-16">
@@ -52,23 +57,44 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="md:max-w-[65%]">
-            <h3 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-nav-muted">
-              Navigation
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {navigation.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="group flex items-center gap-1 text-[14px] font-medium text-nav-foreground transition-colors hover:text-brand"
-                  >
-                    {link.label}
-                    <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-8 md:max-w-[65%]">
+            <div>
+              <h3 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-nav-muted">
+                Navigation
+              </h3>
+              <ul className="flex flex-col gap-2.5">
+                {navigation.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="group flex items-center gap-1 text-[14px] font-medium text-nav-foreground transition-colors hover:text-brand"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-nav-muted">
+                Legal
+              </h3>
+              <ul className="flex flex-col gap-2.5">
+                {legal.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="group flex items-center gap-1 text-[14px] font-medium text-nav-foreground transition-colors hover:text-brand"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <p className="mt-8 text-[12px] text-nav-muted">
