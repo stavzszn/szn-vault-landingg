@@ -1,22 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Faq } from "@/components/Faq";
+import { Hero } from "@/components/landing/Hero";
+import {
+  Gallery,
+  Testimonials,
+  Realism,
+  Tutorials,
+  Playbooks,
+} from "@/components/landing/Showcase";
+import { HardwareCheck } from "@/components/landing/HardwareCheck";
+import { Community, Results } from "@/components/landing/Proof";
+import { Pricing } from "@/components/landing/Pricing";
+
+const description =
+  "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers — 14 tutorials, 2 growth playbooks, lifetime access.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SZNVAULT — FAQ & Access" },
-      {
-        name: "description",
-        content:
-          "Answers to common questions about SZNVAULT: hardware needs, cloud GPU costs, pricing and getting started.",
-      },
-      { property: "og:title", content: "SZNVAULT — FAQ & Access" },
-      {
-        property: "og:description",
-        content:
-          "Answers to common questions about SZNVAULT: hardware needs, cloud GPU costs, pricing and getting started.",
-      },
+      { title: "SZNVAULT — Run Your Own AI Influencers" },
+      { name: "description", content: description },
+      { property: "og:title", content: "SZNVAULT — Run Your Own AI Influencers" },
+      { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -29,7 +35,19 @@ function Index() {
     <div className="min-h-screen bg-nav">
       <Navbar />
       <main>
-        <Faq />
+        <Hero />
+        <Gallery />
+        <Testimonials />
+        <Realism />
+        <Tutorials />
+        <Playbooks />
+        <HardwareCheck />
+        <Community />
+        <Results />
+        <Pricing />
+        <div id="faq">
+          <Faq />
+        </div>
       </main>
     </div>
   );
