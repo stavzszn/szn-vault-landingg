@@ -1,20 +1,19 @@
 import { useRef, useState } from "react";
-import { MediaTile } from "./Primitives";
 
-const items = [
-  { label: "MODEL 01", tone: 0 },
-  { label: "MODEL 02", tone: 1 },
-  { label: "MODEL 03", tone: 2 },
-  { label: "MODEL 04", tone: 1 },
-  { label: "MODEL 05", tone: 0 },
+const tones = [
+  "from-nav-pill to-nav-pill-active",
+  "from-nav-pill-active to-nav-pill",
+  "from-nav-pill via-nav-pill-active to-nav-pill",
 ];
 
-export function Gallery() {
-  const [active, setActive] = useState(Math.floor(items.length / 2));
-  const drag = useRef<{ x: number; moved: boolean } | null>(null);
+const items = [0, 1, 2, 3, 4];
 
-  const move = (dir: number) =>
-    setActive((i) => Math.min(items.length - 1, Math.max(0, i + dir)));
+export function Gallery() {
+  const [active, setActive] = useState(0);
+  const drag = useRef<{ x: number; moved: boolean } | null>(null);
+  const n = items.length;
+
+  const move = (dir: number) => setActive((i) => (i + dir + n) % n);
 
   const onPointerDown = (e: React.PointerEvent) => {
     drag.current = { x: e.clientX, moved: false };
@@ -32,6 +31,8 @@ export function Gallery() {
     drag.current = null;
   };
 
+  const half = Math.floor(n / 2);
+
   return (
     <section className="w-full overflow-hidden px-6 py-16">
       <p className="mb-10 text-center text-[12px] font-bold tracking-[0.2em] text-nav-muted">
@@ -45,40 +46,29 @@ export function Gallery() {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {items.map((item, i) => {
-          const offset = i - active;
+        {items.map((tone, i) => {
+          const offset = ((i - active + half + n) % n) - half;
           const abs = Math.abs(offset);
-          const style = {
-            transform: `translateX(calc(-50% + ${offset * 210}px)) translateZ(${-abs * 220}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 38 : -38}deg) scale(${1 - abs * 0.06})`,
-            opacity: abs > 2 ? 0 : 1 - abs * 0.25,
-            zIndex: items.length - abs,
-            pointerEvents: abs > 2 ? ("none" as const) : ("auto" as const),
-          };
           return (
             <button
-              key={item.label}
+              key={i}
               onClick={() => setActive(i)}
-              aria-label={`Show ${item.label}`}
+              aria-label="Show clip"
               className="absolute left-1/2 top-1/2 h-[400px] w-[230px] -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out [transform-style:preserve-3d]"
-              style={style}
+              style={{
+                transform: `translateX(calc(-50% + ${offset * 210}px)) translateZ(${-abs * 220}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 38 : -38}deg) scale(${1 - abs * 0.06})`,
+                opacity: abs > half ? 0 : 1 - abs * 0.25,
+                zIndex: n - abs,
+              }}
             >
-              <MediaTile label={item.label} tone={item.tone} ratio="h-full" />
+              <div
+                className={`relative h-full overflow-hidden rounded-2xl border border-nav-border bg-gradient-to-br ${tones[tone % 3]}`}
+              >
+                <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_30%_20%,color-mix(in_oklab,var(--brand)_45%,transparent),transparent_60%)]" />
+              </div>
             </button>
           );
         })}
-      </div>
-
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {items.map((item, i) => (
-          <button
-            key={item.label}
-            onClick={() => setActive(i)}
-            aria-label={`Go to ${item.label}`}
-            className={`h-1.5 rounded-full transition-all ${
-              i === active ? "w-6 bg-nav-foreground" : "w-1.5 bg-nav-pill-active"
-            }`}
-          />
-        ))}
       </div>
     </section>
   );
