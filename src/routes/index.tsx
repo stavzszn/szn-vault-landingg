@@ -2,15 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Faq } from "@/components/Faq";
 import { Hero } from "@/components/landing/Hero";
-import {
-  Gallery,
-  Testimonials,
-  Realism,
-  Tutorials,
-  Playbooks,
-} from "@/components/landing/Showcase";
-import { HardwareCheck } from "@/components/landing/HardwareCheck";
-import { Community, Results } from "@/components/landing/Proof";
+import { Gallery, Testimonials, Tutorials } from "@/components/landing/Showcase";
 import { Pricing } from "@/components/landing/Pricing";
 
 const description =
@@ -38,12 +30,7 @@ function Index() {
         <Hero />
         <Gallery />
         <Testimonials />
-        <Realism />
         <Tutorials />
-        <Playbooks />
-        <HardwareCheck />
-        <Community />
-        <Results />
         <Pricing />
         <div id="faq">
           <Faq />

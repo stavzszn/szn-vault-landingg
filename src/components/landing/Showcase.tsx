@@ -48,31 +48,6 @@ export function Testimonials() {
   );
 }
 
-export function Realism() {
-  return (
-    <Section>
-      <Heading>Hyper-realistic models</Heading>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <MediaTile label="100% AI GENERATED" tone={0} />
-        <MediaTile label="100% AI GENERATED" tone={1} />
-      </div>
-      <CheckList
-        items={[
-          "Skin texture, pores and lighting that survive a zoom-in",
-          "Same face across thousands of images",
-          "Full body and outfit control",
-          "4K upscaling",
-          "Video and lipsync",
-          "Male and female models",
-        ]}
-      />
-      <div className="mx-auto mt-8 max-w-sm">
-        <MediaTile label="AI GENERATED · MALE" tone={2} />
-      </div>
-    </Section>
-  );
-}
-
 export function Tutorials() {
   return (
     <Section>
@@ -104,51 +79,6 @@ export function Tutorials() {
           "Posting workflow and scheduling",
         ]}
       />
-    </Section>
-  );
-}
-
-export function Playbooks() {
-  return (
-    <Section>
-      <Heading>2 growth playbooks</Heading>
-      <CheckList items={["Social growth playbook", "Monetization and funnel playbook"]} />
-      <div className="mx-auto mt-8 max-w-md rounded-2xl border border-nav-border bg-nav-pill p-6">
-        <div className="flex items-center justify-between text-[12px] text-nav-muted">
-          <span>Last 30 days</span>
-          <span className="font-semibold text-nav-foreground">Revenue</span>
-        </div>
-        <div className="mx-auto mt-6 grid size-44 place-items-center rounded-full border-8 border-brand">
-          <div className="text-center">
-            <p className="text-[11px] text-nav-muted">Total</p>
-            <p className="text-xl font-extrabold text-nav-foreground">$31,422.99</p>
-          </div>
-        </div>
-        <dl className="mt-6 flex flex-col gap-3 text-[13px]">
-          <div className="flex justify-between">
-            <dt className="text-nav-muted">Subscriptions</dt>
-            <dd className="text-nav-foreground">64%</dd>
-          </div>
-          <div className="flex justify-between">
-            <dt className="text-nav-muted">Tips & PPV</dt>
-            <dd className="text-nav-foreground">36%</dd>
-          </div>
-          <div className="flex justify-between border-t border-nav-border pt-3">
-            <dt className="text-nav-muted">Active fans</dt>
-            <dd className="text-nav-foreground">4,180</dd>
-          </div>
-        </dl>
-      </div>
-      <div className="mt-6 flex flex-col gap-3">
-        {["Traffic playbook", "Monetization playbook", "DM & funnel scripts"].map((p) => (
-          <div
-            key={p}
-            className="rounded-xl border border-nav-border bg-nav-pill px-5 py-4 text-[14px] font-semibold text-nav-foreground"
-          >
-            {p}
-          </div>
-        ))}
-      </div>
     </Section>
   );
 }
