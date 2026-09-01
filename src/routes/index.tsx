@@ -38,6 +38,7 @@ function Index() {
           <Faq />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
