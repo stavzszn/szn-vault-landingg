@@ -85,13 +85,13 @@ export function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {legal.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.to}
                       className="group flex items-center gap-1 text-[14px] font-medium text-nav-foreground transition-colors hover:text-brand"
                     >
                       {link.label}
                       <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
