@@ -30,12 +30,7 @@ function Index() {
         <Hero />
         <Gallery />
         <Testimonials />
-        <Realism />
         <Tutorials />
-        <Playbooks />
-        <HardwareCheck />
-        <Community />
-        <Results />
         <Pricing />
         <div id="faq">
           <Faq />
