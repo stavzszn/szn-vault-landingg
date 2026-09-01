@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logoAsset from "@/assets/logo.png.asset.json";
-import { Twitter, Github, MessageCircle, Send, ArrowUpRight } from "lucide-react";
+import { Send, ArrowUpRight } from "lucide-react";
 
 const navigation = [
   { label: "How it works", href: "#" },
@@ -15,12 +15,6 @@ const company = [
   { label: "About", href: "#" },
   { label: "Terms and Conditions", href: "#" },
   { label: "Privacy Policy", href: "#" },
-];
-
-const socials = [
-  { icon: MessageCircle, href: "#", label: "Discord" },
-  { icon: Twitter, href: "#", label: "X" },
-  { icon: Github, href: "#", label: "GitHub" },
 ];
 
 export function Footer() {
@@ -47,18 +41,12 @@ export function Footer() {
 
           <div className="relative mt-8">
             <p className="text-[13px] font-medium italic text-nav-muted">Stay in touch!</p>
-            <div className="mt-3 flex gap-2.5">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="flex size-9 items-center justify-center rounded-xl border border-nav-border bg-nav/60 text-nav-foreground transition-colors hover:border-brand/40 hover:text-brand"
-                >
-                  <s.icon className="size-4" />
-                </a>
-              ))}
-            </div>
+            <a
+              href="#"
+              className="mt-3 inline-flex items-center gap-2 rounded-full border border-nav-border bg-nav/60 px-4 py-2 text-[13px] font-bold text-nav-foreground transition-colors hover:border-brand/40 hover:text-brand"
+            >
+              Join Discord
+            </a>
           </div>
         </div>
 
@@ -66,12 +54,11 @@ export function Footer() {
         <div className="relative overflow-hidden rounded-3xl border border-nav-border bg-nav-pill p-6 md:p-8">
           <div className="absolute right-6 top-6 hidden md:block">
             <div className="relative">
-              <div className="flex size-20 items-center justify-center rounded-2xl border border-nav-border bg-gradient-to-br from-brand to-brand/70 text-nav-foreground shadow-xl shadow-brand/20">
-                <span className="text-3xl font-black">S</span>
-              </div>
-              <span className="absolute -bottom-4 -right-2 rotate-[-12deg] text-[11px] italic text-nav-muted">
-                Feeling lucky?
-              </span>
+              <img
+                src={logoAsset.url}
+                alt="SZNVAULT logo"
+                className="size-20 rounded-2xl border border-nav-border object-cover shadow-xl shadow-brand/20"
+              />
             </div>
           </div>
 
