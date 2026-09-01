@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logoAsset from "@/assets/logo.png.asset.json";
-import { Twitter, Github, MessageCircle, Send, ArrowUpRight } from "lucide-react";
+import { Send, ArrowUpRight } from "lucide-react";
 
 const navigation = [
   { label: "How it works", href: "#" },
@@ -15,12 +15,6 @@ const company = [
   { label: "About", href: "#" },
   { label: "Terms and Conditions", href: "#" },
   { label: "Privacy Policy", href: "#" },
-];
-
-const socials = [
-  { icon: MessageCircle, href: "#", label: "Discord" },
-  { icon: Twitter, href: "#", label: "X" },
-  { icon: Github, href: "#", label: "GitHub" },
 ];
 
 export function Footer() {

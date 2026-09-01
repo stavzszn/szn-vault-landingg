@@ -8,7 +8,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
-      <div className="relative mx-auto flex h-[72px] max-w-[1400px] items-center px-8">
+      <div className="relative mx-auto flex h-[60px] max-w-[1400px] items-center px-8">
         <a href="/" className="flex items-center gap-3">
           <img src={logoAsset.url} alt="SZNVAULT logo" className="h-7 w-7 object-contain" />
           <span className="text-[15px] font-extrabold tracking-[0.18em] text-nav-foreground">
