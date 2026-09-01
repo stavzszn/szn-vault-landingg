@@ -1,4 +1,5 @@
 import logoAsset from "@/assets/logo.png.asset.json";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
 const navigation = [
@@ -10,8 +11,8 @@ const navigation = [
 ];
 
 const legal = [
-  { label: "Terms and Conditions", href: "#" },
-  { label: "Privacy Policy", href: "#" },
+  { label: "Terms and Conditions", to: "/terms" },
+  { label: "Privacy Policy", to: "/privacy" },
 ];
 
 export function Footer() {
