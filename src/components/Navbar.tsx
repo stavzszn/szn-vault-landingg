@@ -7,7 +7,7 @@ export function Navbar() {
   const [active, setActive] = useState<(typeof tabs)[number]>("MAIN");
 
   return (
-    <header className="w-full bg-nav">
+    <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
       <div className="relative mx-auto flex h-[72px] max-w-[1400px] items-center px-8">
         <a href="/" className="flex items-center gap-3">
           <img src={logoAsset.url} alt="SZNVAULT logo" className="h-7 w-7 object-contain" />

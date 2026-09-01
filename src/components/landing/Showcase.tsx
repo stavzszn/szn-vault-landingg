@@ -1,25 +1,4 @@
-import { MediaTile, Section, Heading, Sub, CheckList } from "./Primitives";
-
-export function Gallery() {
-  return (
-    <section className="w-full overflow-hidden px-6 py-16">
-      <p className="mb-8 text-center text-[12px] font-bold tracking-[0.2em] text-nav-muted">
-        MADE ENTIRELY WITH SZNVAULT
-      </p>
-      <div className="mx-auto flex max-w-4xl items-center justify-center gap-4">
-        <div className="hidden w-40 -rotate-6 opacity-60 sm:block">
-          <MediaTile label="MODEL 01" tone={0} />
-        </div>
-        <div className="w-56 scale-105">
-          <MediaTile label="MODEL 02" tone={1} />
-        </div>
-        <div className="hidden w-40 rotate-6 opacity-60 sm:block">
-          <MediaTile label="MODEL 03" tone={2} />
-        </div>
-      </div>
-    </section>
-  );
-}
+import { Section, Heading, Sub, CheckList } from "./Primitives";
 
 export function Testimonials() {
   const quotes = [
