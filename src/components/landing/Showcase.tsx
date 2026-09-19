@@ -191,8 +191,8 @@ function BentoGrid() {
             + New Model
           </span>
         </div>
-        <BentoTitle solid="Model" faded="Training" />
-        <BentoText>7 READY TO USE WORKFLOWS</BentoText>
+        <BentoTitle solid="7 READY TO USE WORKFLOWS" />
+        <BentoText>Model Training</BentoText>
       </BentoCard>
 
       {/* Row 1 — wide right, glowing orb */}
@@ -214,8 +214,8 @@ function BentoGrid() {
           style={{ borderColor: "color-mix(in oklab, var(--brand) 60%, transparent)" }}
         />
         <div className="relative my-auto max-w-sm">
-          <BentoTitle solid="Automation" />
-          <BentoText>12 TUTORIAL VIDEOS</BentoText>
+          <BentoTitle solid="12 TUTORIAL VIDEOS" />
+          <BentoText>Automation</BentoText>
         </div>
       </BentoCard>
 
@@ -254,8 +254,8 @@ function BentoGrid() {
           }}
         />
         <div className="relative my-auto text-center">
-          <BentoTitle solid="Post" faded="Scheduling" />
-          <BentoText>AND A LOT MORE</BentoText>
+          <BentoTitle solid="AND A LOT MORE" />
+          <BentoText>Post Scheduling</BentoText>
         </div>
       </BentoCard>
     </div>
