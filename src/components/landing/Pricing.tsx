@@ -61,7 +61,7 @@ export function Pricing() {
               href="#"
               className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
             >
-              GET ACCESS — $79.00 <span className="line-through opacity-50">$149</span>
+              GET ACCESS — $37 <span className="line-through opacity-50">$149</span>
             </a>
             <p className="text-center text-[12px] leading-relaxed text-nav-muted">
               One-time payment. Instant access. 7-day refund if the tutorials don't work for you.
