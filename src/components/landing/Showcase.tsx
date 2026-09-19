@@ -1,5 +1,24 @@
 import { useRef, useState } from "react";
+import { Play } from "lucide-react";
 import { Section, Heading, Sub, CheckList } from "./Primitives";
+
+// 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
+const YOUTUBE_URL = "";
+
+function getYouTubeEmbed(url: string): string | null {
+  if (!url) return null;
+  const patterns = [
+    /(?:youtube\.com\/watch\?(?:.*&)?v=)([\w-]{11})/,
+    /(?:youtu\.be\/)([\w-]{11})/,
+    /(?:youtube\.com\/shorts\/)([\w-]{11})/,
+    /(?:youtube\.com\/embed\/)([\w-]{11})/,
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return `https://www.youtube.com/embed/${m[1]}`;
+  }
+  return null;
+}
 
 const quotes = [
   {
