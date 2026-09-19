@@ -192,10 +192,7 @@ function BentoGrid() {
           </span>
         </div>
         <BentoTitle solid="Model" faded="Training" />
-        <BentoText>
-          Train your own hyper-realistic model from scratch and generate your first
-          images in minutes.
-        </BentoText>
+        <BentoText>7 READY TO USE WORKFLOWS</BentoText>
       </BentoCard>
 
       {/* Row 1 — wide right, glowing orb */}
@@ -218,10 +215,7 @@ function BentoGrid() {
         />
         <div className="relative my-auto max-w-sm">
           <BentoTitle solid="Automation" />
-          <BentoText>
-            Automate your entire content pipeline — from generation to posting — with
-            batch workflows that run while you sleep.
-          </BentoText>
+          <BentoText>12 TUTORIAL VIDEOS</BentoText>
         </div>
       </BentoCard>
 
@@ -261,9 +255,7 @@ function BentoGrid() {
         />
         <div className="relative my-auto text-center">
           <BentoTitle solid="Post" faded="Scheduling" />
-          <BentoText>
-            Plan, queue and publish a full week of content in one sitting.
-          </BentoText>
+          <BentoText>AND A LOT MORE</BentoText>
         </div>
       </BentoCard>
     </div>
