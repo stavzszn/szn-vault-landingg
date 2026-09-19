@@ -74,3 +74,38 @@ export function Testimonials() {
     </Section>
   );
 }
+
+export function Tutorials() {
+  return (
+    <Section>
+      <Heading>14 step-by-step tutorials</Heading>
+      <Sub>Every click recorded. Follow along and you'll have your first model tonight.</Sub>
+      <div className="mt-8 overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+        <div className="flex gap-1.5 border-b border-nav-border px-4 py-3">
+          <span className="size-2.5 rounded-full bg-nav-pill-active" />
+          <span className="size-2.5 rounded-full bg-nav-pill-active" />
+          <span className="size-2.5 rounded-full bg-nav-pill-active" />
+        </div>
+        <div className="grid grid-cols-4 gap-2 p-4">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={i} className="h-14 rounded-lg bg-nav-pill-active/60" />
+          ))}
+        </div>
+      </div>
+      <CheckList
+        items={[
+          "Install and setup",
+          "Building your base model",
+          "Face consistency training",
+          "Posing and outfits",
+          "Backgrounds and scenes",
+          "Upscaling to 4K",
+          "Video generation",
+          "Lipsync and voice",
+          "Batch content production",
+          "Posting workflow and scheduling",
+        ]}
+      />
+    </Section>
+  );
+}
