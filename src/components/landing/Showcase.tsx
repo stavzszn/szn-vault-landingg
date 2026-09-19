@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Section, Heading } from "./Primitives";
+import { Section, Heading, Sub, CheckList } from "./Primitives";
 
 const quotes = [
   {
