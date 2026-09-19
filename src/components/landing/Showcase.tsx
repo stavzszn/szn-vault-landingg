@@ -191,8 +191,11 @@ function BentoGrid() {
             + New Model
           </span>
         </div>
-        <BentoTitle solid="7 READY TO USE WORKFLOWS" />
-        <BentoText>Model Training</BentoText>
+        <BentoTitle solid="Model" faded="Training" />
+        <BentoText>
+          Train your own hyper-realistic model from scratch and generate your first
+          images in minutes.
+        </BentoText>
       </BentoCard>
 
       {/* Row 1 — wide right, glowing orb */}
@@ -214,8 +217,11 @@ function BentoGrid() {
           style={{ borderColor: "color-mix(in oklab, var(--brand) 60%, transparent)" }}
         />
         <div className="relative my-auto max-w-sm">
-          <BentoTitle solid="12 TUTORIAL VIDEOS" />
-          <BentoText>Automation</BentoText>
+          <BentoTitle solid="Automation" />
+          <BentoText>
+            Automate your entire content pipeline — from generation to posting — with
+            batch workflows that run while you sleep.
+          </BentoText>
         </div>
       </BentoCard>
 
@@ -254,8 +260,10 @@ function BentoGrid() {
           }}
         />
         <div className="relative my-auto text-center">
-          <BentoTitle solid="AND A LOT MORE" />
-          <BentoText>Post Scheduling</BentoText>
+          <BentoTitle solid="Post" faded="Scheduling" />
+          <BentoText>
+            Plan, queue and publish a full week of content in one sitting.
+          </BentoText>
         </div>
       </BentoCard>
     </div>
