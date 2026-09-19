@@ -19,7 +19,7 @@ export function Section({
 
 export function Heading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-4xl">
+    <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-4xl">
       {children}
     </h2>
   );
