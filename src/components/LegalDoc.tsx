@@ -11,7 +11,7 @@ export type LegalBlock =
   | { type: "h3"; text: ReactNode };
 
 export type LegalSection = {
-  title: string;
+  title?: string;
   blocks: LegalBlock[];
 };
 
