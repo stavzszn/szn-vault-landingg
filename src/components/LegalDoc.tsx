@@ -47,8 +47,10 @@ export function LegalPage({
 
         <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-nav-foreground/90">
           {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
+            <section key={section.title ?? i}>
+              {section.title ? (
+                <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
+              ) : null}
               <div className="mt-3 space-y-3">
                 {section.blocks.map((block, i) => {
                   if (block.type === "p") return <p key={i}>{block.text}</p>;
