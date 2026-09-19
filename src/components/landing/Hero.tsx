@@ -66,13 +66,6 @@ export function Hero() {
           One-time payment · Lifetime updates · Instant delivery
         </p>
 
-        <p className="mt-10 text-[12px] font-semibold tracking-[0.1em] text-nav-muted">
-          FROM A MEMBER, 6 WEEKS IN
-        </p>
-        <div className="mt-2 rounded-2xl border border-nav-border bg-nav-pill p-4 text-[13px] leading-relaxed text-nav-foreground">
-          "I went from zero to a page doing 40k views a day. The consistency workflow alone was
-          worth the whole thing."
-        </div>
       </div>
     </section>
   );
