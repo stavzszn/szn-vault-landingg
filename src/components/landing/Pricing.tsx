@@ -1,6 +1,8 @@
 import { Check } from "lucide-react";
 import { MediaTile, Section, Heading } from "./Primitives";
 
+export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
+
 const included = [
   "14 step-by-step video tutorials",
   "2 growth playbooks",
@@ -58,10 +60,12 @@ export function Pricing() {
               LIMITED LAUNCH PRICING
             </div>
             <a
-              href="#"
+              href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
             >
-              GET ACCESS — $37 <span className="line-through opacity-50">$149</span>
+              GET ACCESS — €37 <span className="line-through opacity-50">€149</span>
             </a>
             <p className="text-center text-[12px] leading-relaxed text-nav-muted">
               One-time payment. Instant access. 7-day refund if the tutorials don't work for you.
@@ -77,7 +81,9 @@ export function Pricing() {
               ))}
             </div>
             <a
-              href="#"
+              href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-brand px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-brand-foreground transition-opacity hover:opacity-90"
             >
               JOIN NOW
