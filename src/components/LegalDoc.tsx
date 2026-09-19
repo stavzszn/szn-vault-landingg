@@ -46,8 +46,8 @@ export function LegalPage({
         <p className="mt-2 text-[14px] text-nav-muted">sznvault | sznvault.com</p>
 
         <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-nav-foreground/90">
-          {sections.map((section) => (
-            <section key={section.title ?? i}>
+            {sections.map((section, idx) => (
+            <section key={section.title ?? idx}>
               {section.title ? (
                 <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
               ) : null}
