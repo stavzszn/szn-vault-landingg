@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
-import { Section, Heading, Sub, CheckList } from "./Primitives";
+import { Section, Heading, Sub } from "./Primitives";
 
 // 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
 const YOUTUBE_URL = "";
