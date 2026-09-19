@@ -193,7 +193,7 @@ function BentoGrid() {
         </div>
         <BentoTitle solid="Install & Setup" faded="ComfyUI" />
         <BentoText>
-          Get ComfyUI installed and running on your machine in minutes — every click
+          Get ComfyUI installed and running on your machine in minutes , every click
           recorded, zero guesswork.
         </BentoText>
       </BentoCard>
@@ -219,7 +219,7 @@ function BentoGrid() {
         <div className="relative my-auto max-w-sm">
           <BentoTitle solid="Local Image &" faded="Video Generation" />
           <BentoText>
-            Generate unlimited images and videos right on your own machine — no
+            Generate unlimited images and videos right on your own machine,  no
             subscriptions, no credits, no limits.
           </BentoText>
         </div>
