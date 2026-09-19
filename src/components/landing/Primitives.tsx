@@ -1,5 +1,18 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Check } from "lucide-react";
+
+/** True on phone-sized screens (<640px). */
+export function useCompact() {
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setCompact(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return compact;
+}
 
 export function Section({
   children,
@@ -11,7 +24,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`w-full px-6 py-20 ${className}`}>
+    <section id={id} className={`w-full px-4 py-14 sm:px-6 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-5xl">{children}</div>
     </section>
   );
@@ -19,14 +32,18 @@ export function Section({
 
 export function Heading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="text-center text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-4xl">
+    <h2 className="text-center text-2xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-3xl md:text-4xl">
       {children}
     </h2>
   );
 }
 
 export function Sub({ children }: { children: ReactNode }) {
-  return <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-nav-muted">{children}</p>;
+  return (
+    <p className="mx-auto mt-3 max-w-2xl text-center text-[14px] leading-relaxed text-nav-muted">
+      {children}
+    </p>
+  );
 }
 
 export function CheckList({ items }: { items: string[] }) {

@@ -8,10 +8,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
-      <div className="relative mx-auto flex h-[60px] max-w-[1400px] items-center px-8">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="SZNVAULT logo" className="h-7 w-7 object-contain" />
-          <span className="text-[15px] font-extrabold tracking-[0.18em] text-nav-foreground">
+      <div className="relative mx-auto flex h-[56px] max-w-[1400px] items-center justify-between px-4 sm:px-8">
+        <a href="/" className="flex items-center gap-2.5">
+          <img src={logoAsset.url} alt="SZNVAULT logo" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
+          <span className="hidden text-[15px] font-extrabold tracking-[0.18em] text-nav-foreground min-[420px]:inline">
             SZNVAULT
           </span>
         </a>
@@ -22,7 +22,7 @@ export function Navbar() {
               <button
                 key={tab}
                 onClick={() => setActive(tab)}
-                className={`rounded-full px-6 py-2 text-[13px] font-bold tracking-[0.08em] transition-colors ${
+                className={`rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] transition-colors sm:px-6 sm:py-2 sm:text-[13px] ${
                   active === tab
                     ? "bg-nav-pill-active text-nav-foreground"
                     : "text-nav-muted hover:text-nav-foreground"
@@ -38,7 +38,7 @@ export function Navbar() {
           href="https://whop.com/checkout/plan_Bo8NofFDjnPco"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-auto rounded-full bg-nav-foreground px-5 py-2.5 text-[12px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
+          className="rounded-full bg-nav-foreground px-3.5 py-2 text-[11px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90 sm:px-5 sm:py-2.5 sm:text-[12px]"
         >
           GET ACCESS
         </a>
