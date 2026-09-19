@@ -188,13 +188,13 @@ function BentoGrid() {
               boxShadow: "0 0 28px color-mix(in oklab, var(--brand) 45%, transparent)",
             }}
           >
-            + New Model
+            + ComfyUI
           </span>
         </div>
-        <BentoTitle solid="Model" faded="Training" />
+        <BentoTitle solid="Install & Setup" faded="ComfyUI" />
         <BentoText>
-          Train your own hyper-realistic model from scratch and generate your first
-          images in minutes.
+          Get ComfyUI installed and running on your machine in minutes — every click
+          recorded, zero guesswork.
         </BentoText>
       </BentoCard>
 
@@ -217,10 +217,10 @@ function BentoGrid() {
           style={{ borderColor: "color-mix(in oklab, var(--brand) 60%, transparent)" }}
         />
         <div className="relative my-auto max-w-sm">
-          <BentoTitle solid="Automation" />
+          <BentoTitle solid="Local Image &" faded="Video Generation" />
           <BentoText>
-            Automate your entire content pipeline — from generation to posting — with
-            batch workflows that run while you sleep.
+            Generate unlimited images and videos right on your own machine — no
+            subscriptions, no credits, no limits.
           </BentoText>
         </div>
       </BentoCard>
@@ -260,9 +260,10 @@ function BentoGrid() {
           }}
         />
         <div className="relative my-auto text-center">
-          <BentoTitle solid="Post" faded="Scheduling" />
+          <BentoTitle solid="And" faded="Many More" />
           <BentoText>
-            Plan, queue and publish a full week of content in one sitting.
+            LoRA training, upscaling, custom workflows and everything else the pros
+            actually use.
           </BentoText>
         </div>
       </BentoCard>
