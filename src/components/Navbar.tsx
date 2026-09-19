@@ -11,7 +11,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
       <div className="relative mx-auto flex h-[56px] max-w-[1400px] items-center justify-between px-4 sm:px-8">
         <a href="/" className="flex items-center gap-2.5">
-          <img src={logoAsset.url} alt="SZNVAULT logo" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
+          <img src={logoUrl} alt="SZNVAULT logo" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
           <span className="hidden text-[15px] font-extrabold tracking-[0.18em] text-nav-foreground min-[420px]:inline">
             SZNVAULT
           </span>

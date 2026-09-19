@@ -26,7 +26,7 @@ export function Footer() {
           <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-brand/10 blur-3xl" />
 
           <a href="/" className="relative flex items-center gap-3">
-            <img src={logoAsset.url} alt="SZNVAULT logo" className="h-8 w-8 object-contain" />
+            <img src={logoUrl} alt="SZNVAULT logo" className="h-8 w-8 object-contain" />
             <span className="text-[18px] font-extrabold tracking-[0.12em] text-nav-foreground">
               SZNVAULT
             </span>
@@ -52,7 +52,7 @@ export function Footer() {
           <div className="absolute right-6 top-6 hidden md:block">
             <div className="relative">
               <img
-                src={logoAsset.url}
+                src={logoUrl}
                 alt="SZNVAULT logo"
                 className="size-20 rounded-2xl border border-nav-border object-cover shadow-xl shadow-brand/20"
               />
