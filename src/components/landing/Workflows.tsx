@@ -119,10 +119,12 @@ export function Workflows() {
       <Sub>
         Drag the slider — every workflow comes ready to run, no setup needed.
       </Sub>
-      <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {WORKFLOWS.map((pair) => (
-          <CompareCard key={pair.title} pair={pair} />
-        ))}
+      <div className="mx-auto mt-10 max-w-[820px]">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {WORKFLOWS.map((pair) => (
+            <CompareCard key={pair.title} pair={pair} />
+          ))}
+        </div>
       </div>
     </Section>
   );
