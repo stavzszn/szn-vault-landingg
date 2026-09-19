@@ -42,16 +42,22 @@ export function LegalPage({
           Back to home
         </Link>
 
-        <h1 className="mt-8 text-[32px] font-bold tracking-tight text-nav-foreground">{title}</h1>
-        <p className="mt-2 text-[14px] text-nav-muted">sznvault | sznvault.com</p>
+        <h1 className="mt-10 text-center text-[40px] font-extrabold leading-tight tracking-tight text-nav-foreground sm:text-[56px]">
+          {title}
+        </h1>
+        <p className="mt-6 text-[16px] text-nav-muted">{title} SZNVault | sznvault.com</p>
 
-        <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-nav-foreground/90">
-            {sections.map((section, idx) => (
-            <section key={section.title ?? idx}>
+        <div className="mt-4 text-[16px] leading-[1.75] text-nav-foreground/90">
+          {sections.map((section, idx) => (
+            <section
+              key={section.title ?? idx}
+              className="border-t border-nav-border py-12 first:pt-12"
+            >
               {section.title ? (
-                <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
+                <h2 className="text-[18px] font-medium text-nav-foreground">{section.title}</h2>
               ) : null}
-              <div className="mt-3 space-y-3">
+              <div className="mt-6 space-y-5">
+
                 {section.blocks.map((block, i) => {
                   if (block.type === "p") return <p key={i}>{block.text}</p>;
                   if (block.type === "h3")
