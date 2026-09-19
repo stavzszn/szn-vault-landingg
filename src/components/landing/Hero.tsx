@@ -28,7 +28,7 @@ export function Hero() {
           </span>
         </div>
 
-        <h1 className="mt-8 text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-4xl">
+        <h1 className="mt-8 text-center text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-4xl">
           Run your own AI influencers with SZNVAULT
         </h1>
         <p className="mt-3 text-[14px] leading-relaxed text-nav-muted">
