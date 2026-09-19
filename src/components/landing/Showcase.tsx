@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
-import { Section, Heading, Sub } from "./Primitives";
+import { Section, Heading, Sub, useCompact } from "./Primitives";
 
 // 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
 const YOUTUBE_URL = "";
@@ -54,12 +54,16 @@ export function Testimonials() {
   };
 
   const half = Math.floor(n / 2);
+  const compact = useCompact();
+  const cardW = compact ? 240 : 300;
+  const step = compact ? 165 : 260;
+  const depth = compact ? 180 : 240;
 
   return (
     <Section>
       <Heading>The users speak for themselves</Heading>
       <div
-        className="relative mx-auto mt-10 h-[190px] max-w-5xl touch-pan-y select-none [perspective:1200px]"
+        className="relative mx-auto mt-10 h-[170px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[190px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -73,9 +77,10 @@ export function Testimonials() {
               key={q.name}
               onClick={() => setActive(i)}
               aria-label={`Show review from ${q.name}`}
-              className="absolute left-1/2 top-1/2 h-[170px] w-[300px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d]"
+              className="absolute left-1/2 top-1/2 h-[160px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d] sm:h-[170px]"
               style={{
-                transform: `translateX(calc(-50% + ${offset * 260}px)) translateZ(${-abs * 240}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 32 : -32}deg) scale(${1 - abs * 0.06})`,
+                width: cardW,
+                transform: `translateX(calc(-50% + ${offset * step}px)) translateZ(${-abs * depth}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 32 : -32}deg) scale(${1 - abs * 0.06})`,
                 opacity: abs > half ? 0 : 1 - abs * 0.3,
                 zIndex: n - abs,
               }}
@@ -150,7 +155,7 @@ function BentoCard({
 }) {
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl border border-nav-border bg-nav-pill p-6 transition-colors duration-300 hover:border-nav-pill-active md:p-8 ${className}`}
+      className={`group relative min-h-[220px] overflow-hidden rounded-3xl border border-nav-border bg-nav-pill p-5 transition-colors duration-300 hover:border-nav-pill-active sm:p-6 md:p-8 ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
@@ -234,7 +239,7 @@ function BentoGrid() {
               "repeating-radial-gradient(circle at center, color-mix(in oklab, var(--brand) 25%, transparent) 0 1px, transparent 1px 36px)",
           }}
         />
-        <div className="absolute right-6 top-6 w-44 space-y-2 rounded-xl border border-nav-border bg-nav/60 p-3 backdrop-blur-sm">
+        <div className="absolute right-6 top-6 hidden w-44 space-y-2 rounded-xl border border-nav-border bg-nav/60 p-3 backdrop-blur-sm sm:block">
           <div className="h-2 w-3/4 rounded-full bg-nav-pill-active" />
           <div className="h-2 w-full rounded-full bg-nav-pill-active" />
           <div className="h-2 w-2/3 rounded-full bg-nav-pill-active" />
