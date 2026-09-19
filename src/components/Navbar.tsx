@@ -35,7 +35,9 @@ export function Navbar() {
         </nav>
 
         <a
-          href="#"
+          href="https://whop.com/checkout/plan_Bo8NofFDjnPco"
+          target="_blank"
+          rel="noopener noreferrer"
           className="ml-auto rounded-full bg-nav-foreground px-5 py-2.5 text-[12px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
         >
           GET ACCESS
