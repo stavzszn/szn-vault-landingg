@@ -1,6 +1,7 @@
-import logoAsset from "@/assets/logo.png.asset.json";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+
+const logoUrl = "/logo.png";
 
 const navigation = [
   { label: "How it works", href: "#" },

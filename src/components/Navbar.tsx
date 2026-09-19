@@ -1,5 +1,6 @@
 import { useState } from "react";
-import logoAsset from "@/assets/logo.png.asset.json";
+
+const logoUrl = "/logo.png";
 
 const tabs = ["MAIN", "DISCORD"] as const;
 
