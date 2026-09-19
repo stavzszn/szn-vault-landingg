@@ -1,6 +1,7 @@
-import logoAsset from "@/assets/logo.png.asset.json";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+
+const logoUrl = "/logo.png";
 
 const navigation = [
   { label: "How it works", href: "#" },
@@ -17,7 +18,7 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="w-full px-6 pb-8 pt-16">
+    <footer className="w-full px-4 pb-6 pt-12 sm:px-6 sm:pb-8 sm:pt-16">
       <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-[1.1fr_1.9fr]">
         {/* Left brand card */}
         <div className="relative overflow-hidden rounded-3xl border border-nav-border bg-gradient-to-br from-nav-pill-active via-nav-pill to-nav p-6 md:p-8">
@@ -25,7 +26,7 @@ export function Footer() {
           <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-brand/10 blur-3xl" />
 
           <a href="/" className="relative flex items-center gap-3">
-            <img src={logoAsset.url} alt="SZNVAULT logo" className="h-8 w-8 object-contain" />
+            <img src={logoUrl} alt="SZNVAULT logo" className="h-8 w-8 object-contain" />
             <span className="text-[18px] font-extrabold tracking-[0.12em] text-nav-foreground">
               SZNVAULT
             </span>
@@ -51,7 +52,7 @@ export function Footer() {
           <div className="absolute right-6 top-6 hidden md:block">
             <div className="relative">
               <img
-                src={logoAsset.url}
+                src={logoUrl}
                 alt="SZNVAULT logo"
                 className="size-20 rounded-2xl border border-nav-border object-cover shadow-xl shadow-brand/20"
               />
