@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useCompact } from "./Primitives";
 
 const tones = [
   "from-nav-pill to-nav-pill-active",
@@ -32,15 +33,20 @@ export function Gallery() {
   };
 
   const half = Math.floor(n / 2);
+  const compact = useCompact();
+  const cardW = compact ? 175 : 230;
+  const cardH = compact ? 300 : 400;
+  const step = compact ? 130 : 210;
+  const depth = compact ? 160 : 220;
 
   return (
-    <section className="w-full overflow-hidden px-6 py-16">
+    <section className="w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-16">
       <p className="mb-10 text-center text-[12px] font-bold tracking-[0.2em] text-nav-muted">
         MADE ENTIRELY WITH SZNVAULT
       </p>
 
       <div
-        className="relative mx-auto h-[420px] max-w-5xl touch-pan-y select-none [perspective:1400px]"
+        className="relative mx-auto h-[320px] max-w-5xl touch-pan-y select-none [perspective:1400px] sm:h-[420px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -54,9 +60,11 @@ export function Gallery() {
               key={i}
               onClick={() => setActive(i)}
               aria-label="Show clip"
-              className="absolute left-1/2 top-1/2 h-[400px] w-[230px] -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out [transform-style:preserve-3d]"
+              className="absolute left-1/2 top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out [transform-style:preserve-3d]"
               style={{
-                transform: `translateX(calc(-50% + ${offset * 210}px)) translateZ(${-abs * 220}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 38 : -38}deg) scale(${1 - abs * 0.06})`,
+                width: cardW,
+                height: cardH,
+                transform: `translateX(calc(-50% + ${offset * step}px)) translateZ(${-abs * depth}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 38 : -38}deg) scale(${1 - abs * 0.06})`,
                 opacity: abs > half ? 0 : 1 - abs * 0.25,
                 zIndex: n - abs,
               }}
