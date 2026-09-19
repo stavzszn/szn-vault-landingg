@@ -11,7 +11,7 @@ export type LegalBlock =
   | { type: "h3"; text: ReactNode };
 
 export type LegalSection = {
-  title: string;
+  title?: string;
   blocks: LegalBlock[];
 };
 
@@ -46,9 +46,11 @@ export function LegalPage({
         <p className="mt-2 text-[14px] text-nav-muted">sznvault | sznvault.com</p>
 
         <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-nav-foreground/90">
-          {sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
+            {sections.map((section, idx) => (
+            <section key={section.title ?? idx}>
+              {section.title ? (
+                <h2 className="text-[18px] font-semibold text-nav-foreground">{section.title}</h2>
+              ) : null}
               <div className="mt-3 space-y-3">
                 {section.blocks.map((block, i) => {
                   if (block.type === "p") return <p key={i}>{block.text}</p>;
