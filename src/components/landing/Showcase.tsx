@@ -80,18 +80,31 @@ export function Tutorials() {
     <Section>
       <Heading>14 step-by-step tutorials</Heading>
       <Sub>Every click recorded. Follow along and you'll have your first model tonight.</Sub>
-      <div className="mt-8 overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
-        <div className="flex gap-1.5 border-b border-nav-border px-4 py-3">
-          <span className="size-2.5 rounded-full bg-nav-pill-active" />
-          <span className="size-2.5 rounded-full bg-nav-pill-active" />
-          <span className="size-2.5 rounded-full bg-nav-pill-active" />
-        </div>
-        <div className="grid grid-cols-4 gap-2 p-4">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="h-14 rounded-lg bg-nav-pill-active/60" />
-          ))}
-        </div>
-      </div>
+      {(() => {
+        const embed = getYouTubeEmbed(YOUTUBE_URL);
+        return (
+          <div className="mt-8 overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+            {embed ? (
+              <div className="aspect-video w-full">
+                <iframe
+                  src={embed}
+                  title="Tutorial video"
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div className="relative grid aspect-video w-full place-items-center bg-gradient-to-br from-nav-pill to-nav-pill-active">
+                <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_50%_40%,color-mix(in_oklab,var(--brand)_45%,transparent),transparent_65%)]" />
+                <span className="relative grid size-16 place-items-center rounded-full bg-nav-foreground text-nav">
+                  <Play className="size-6 translate-x-0.5 fill-current" />
+                </span>
+              </div>
+            )}
+          </div>
+        );
+      })()}
       <CheckList
         items={[
           "Install and setup",
