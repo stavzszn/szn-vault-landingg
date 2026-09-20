@@ -1,13 +1,18 @@
 import { useRef, useState } from "react";
 import { useCompact } from "./Primitives";
+import img1 from "@/assets/bsfd.webp.asset.json";
+import img2 from "@/assets/nyt.png.asset.json";
+import img3 from "@/assets/nhg.png.asset.json";
+import img4 from "@/assets/vfds.png.asset.json";
+import img5 from "@/assets/bfd.webp.asset.json";
 
-const tones = [
-  "from-nav-pill to-nav-pill-active",
-  "from-nav-pill-active to-nav-pill",
-  "from-nav-pill via-nav-pill-active to-nav-pill",
+const items = [
+  { src: img1.url, alt: "AI model sample 1" },
+  { src: img2.url, alt: "AI model sample 2" },
+  { src: img3.url, alt: "AI model sample 3" },
+  { src: img4.url, alt: "AI model sample 4" },
+  { src: img5.url, alt: "AI model sample 5" },
 ];
-
-const items = [0, 1, 2, 3, 4];
 
 export function Gallery() {
   const [active, setActive] = useState(0);
@@ -52,12 +57,12 @@ export function Gallery() {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {items.map((tone, i) => {
+        {items.map((item, i) => {
           const offset = ((i - active + half + n) % n) - half;
           const abs = Math.abs(offset);
           return (
             <button
-              key={i}
+              key={item.src}
               onClick={() => setActive(i)}
               aria-label="Show clip"
               className="absolute left-1/2 top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out [transform-style:preserve-3d]"
@@ -69,10 +74,13 @@ export function Gallery() {
                 zIndex: n - abs,
               }}
             >
-              <div
-                className={`relative h-full overflow-hidden rounded-2xl border border-nav-border bg-gradient-to-br ${tones[tone % 3]}`}
-              >
-                <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_30%_20%,color-mix(in_oklab,var(--brand)_45%,transparent),transparent_60%)]" />
+              <div className="relative h-full overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  draggable={false}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </button>
           );
