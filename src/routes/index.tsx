@@ -33,7 +33,6 @@ function Index() {
         <Gallery />
         <Testimonials />
         <Tutorials />
-        <Workflows />
         <Pricing />
         <div id="faq">
           <Faq />
