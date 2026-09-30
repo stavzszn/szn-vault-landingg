@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
-import { MediaTile, Section, Heading } from "./Primitives";
+import { Section, Heading } from "./Primitives";
+import showcaseImg from "./pricing-showcase.png.asset.json";
 
 export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
 
