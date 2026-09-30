@@ -67,13 +67,13 @@ export function Pricing() {
               rel="noopener noreferrer"
               className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
             >
-              GET ACCESS — €37 <span className="line-through opacity-50">€149</span>
+              GET ACCESS — €47 <span className="line-through opacity-50">€149</span>
             </a>
             <p className="text-center text-[12px] leading-relaxed text-nav-muted">
-              One-time payment. Instant access. 7-day refund if the tutorials don't work for you.
+              One-time payment. Instant access.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              {["VISA", "MASTERCARD", "AMEX", "APPLE PAY", "GPAY", "PAYPAL", "KLARNA"].map((m) => (
+              {["VISA", "MASTERCARD", "AMEX", "APPLE PAY", "GPAY", "CRYPTO"].map((m) => (
                 <span
                   key={m}
                   className="rounded-md border border-nav-border px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-nav-muted"
