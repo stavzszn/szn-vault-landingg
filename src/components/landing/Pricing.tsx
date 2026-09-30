@@ -26,11 +26,12 @@ export function Pricing() {
     <Section id="pricing">
       <Heading>Everything you could ever need</Heading>
       <div className="mt-8 grid gap-8 md:grid-cols-2">
-        <div className="grid grid-cols-2 gap-3">
-          <MediaTile label="WORKFLOW" ratio="aspect-[3/4]" tone={0} />
-          <MediaTile label="PROMPTS" ratio="aspect-[3/4]" tone={1} />
-          <MediaTile label="DASHBOARD" ratio="aspect-[3/4]" tone={2} />
-          <MediaTile label="LIBRARY" ratio="aspect-[3/4]" tone={0} />
+        <div className="self-center">
+          <img
+            src={showcaseImg.url}
+            alt="SZNVAULT"
+            className="w-full rounded-3xl border border-nav-border object-cover"
+          />
         </div>
 
         <div>
