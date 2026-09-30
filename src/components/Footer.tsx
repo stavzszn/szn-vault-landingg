@@ -40,7 +40,9 @@ export function Footer() {
           <div className="relative mt-8">
             <p className="text-[13px] font-medium italic text-nav-muted">Stay in touch!</p>
             <a
-              href="#"
+              href="https://discord.com/invite/sznvault"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-2 rounded-full border border-nav-border bg-nav/60 px-4 py-2 text-[13px] font-bold text-nav-foreground transition-colors hover:border-brand/40 hover:text-brand"
             >
               Join Discord
