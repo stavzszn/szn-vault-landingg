@@ -3,7 +3,7 @@ import { Check, Play } from "lucide-react";
 const bullets = [
   "Full step-by-step training from zero",
   "Build hyper-realistic AI models in minutes",
-  "Works on any PC — or a cheap cloud GPU",
+  "Local host everything or a cheap cloud GPU",
   "Consistent faces across every post",
   "Private community and weekly updates",
   "Lifetime access, one payment, no subscriptions",
@@ -32,8 +32,7 @@ export function Hero() {
           Run your own AI influencers with SZNVAULT
         </h1>
         <p className="mt-3 text-[14px] leading-relaxed text-nav-muted">
-          The full playbook for creating, training and monetizing hyper-realistic AI models —
-          no coding, no agency, no monthly software bills.
+          The full playbook for creating, training and monetizing hyper-realistic AI models. No coding, no agency, no monthly software bills.
         </p>
 
         <p className="mt-7 text-[13px] font-bold tracking-[0.12em] text-nav-foreground">
