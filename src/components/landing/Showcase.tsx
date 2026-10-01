@@ -103,7 +103,7 @@ export function Tutorials() {
   return (
     <Section>
       <Heading>Everything in one place</Heading>
-      <Sub>Every click recorded. Follow along and you'll have your first model tonight.</Sub>
+      <Sub>{"\n"}</Sub>
       {(() => {
         const embed = getYouTubeEmbed(YOUTUBE_URL);
         return (
