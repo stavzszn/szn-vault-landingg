@@ -15,10 +15,6 @@ const included = [
 const bonuses = [
   "Private community access",
   "Lifetime updates at no extra cost",
-  "\n",
-  "\n",
-  "\n",
-  "\n",
 ];
 
 export function Pricing() {
