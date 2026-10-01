@@ -102,7 +102,7 @@ export function Testimonials() {
 export function Tutorials() {
   return (
     <Section>
-      <Heading>14 step-by-step tutorials</Heading>
+      <Heading>Everything in one place</Heading>
       <Sub>Every click recorded. Follow along and you'll have your first model tonight.</Sub>
       {(() => {
         const embed = getYouTubeEmbed(YOUTUBE_URL);
