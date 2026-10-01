@@ -5,20 +5,20 @@ import showcaseImg from "@/assets/pricing-showcase.png.asset.json";
 export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
 
 const included = [
-  "14 step-by-step video tutorials",
-  "2 growth playbooks",
+  "Step-by-step video tutorials",
+  "More than 9 ComfyUI workflows",
   "Prompt and workflow library",
-  "Face consistency training method",
+  "Promt and Captioning studios",
   "Cloud GPU setup guide",
 ];
 
 const bonuses = [
   "Private community access",
-  "Weekly workflow updates",
-  "DM scripts and funnel templates",
-  "Content calendar and posting system",
-  "Monetization platform breakdown",
   "Lifetime updates at no extra cost",
+  "\n",
+  "\n",
+  "\n",
+  "\n",
 ];
 
 export function Pricing() {
