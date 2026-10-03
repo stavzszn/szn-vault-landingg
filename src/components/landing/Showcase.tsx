@@ -59,8 +59,8 @@ export function Testimonials() {
 
   const half = Math.floor(n / 2);
   const compact = useCompact();
-  const cardW = compact ? 240 : 300;
-  const step = compact ? 165 : 260;
+  const cardW = compact ? 280 : 460;
+  const step = compact ? 185 : 300;
   const depth = compact ? 180 : 240;
 
   return (
