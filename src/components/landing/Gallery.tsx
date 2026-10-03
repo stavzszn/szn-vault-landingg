@@ -39,19 +39,19 @@ export function Gallery() {
 
   const half = Math.floor(n / 2);
   const compact = useCompact();
-  const cardW = compact ? 175 : 230;
-  const cardH = compact ? 300 : 400;
+  const cardW = compact ? 210 : 280;
+  const cardH = compact ? 360 : 480;
   const step = compact ? 130 : 210;
   const depth = compact ? 160 : 220;
 
   return (
     <section className="w-full overflow-hidden px-4 py-14 sm:px-6 sm:py-20">
-      <p className="mb-10 text-center text-[12px] font-bold tracking-[0.2em] text-nav-muted">
+      <h2 className="mb-10 text-center text-2xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-3xl md:text-4xl">
         MADE ENTIRELY WITH SZNVAULT
-      </p>
+      </h2>
 
       <div
-        className="relative mx-auto h-[320px] max-w-5xl touch-pan-y select-none [perspective:1400px] sm:h-[420px]"
+        className="relative mx-auto h-[380px] max-w-5xl touch-pan-y select-none [perspective:1400px] sm:h-[500px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
