@@ -17,7 +17,7 @@ export function Hero() {
         <div className="mx-auto w-[75%] overflow-hidden rounded-3xl border border-nav-border">
           <img
             src={heroImage.url}
-            alt="SZNVAULT"
+            alt="AI-generated woman in a puffer jacket beside a black BMW in the snow next to a SZN VAULT sign"
             className="block h-auto w-full"
           />
         </div>
