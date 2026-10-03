@@ -37,7 +37,7 @@ function getYouTubeEmbed(url: string): string | null {
 export function Testimonials() {
   const [active, setActive] = useState(0);
   const drag = useRef<{ x: number; moved: boolean } | null>(null);
-  const n = quotes.length;
+  const n = reviews.length;
 
   const move = (dir: number) => setActive((i) => (i + dir + n) % n);
 
