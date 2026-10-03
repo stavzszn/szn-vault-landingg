@@ -11,7 +11,7 @@ const bullets = [
 
 export function Hero() {
   return (
-    <section className="w-full px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-14">
+    <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-3xl">
         <div className="relative aspect-video overflow-hidden rounded-3xl border border-nav-border bg-gradient-to-br from-nav-pill to-nav-pill-active">
           <div className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle_at_70%_30%,color-mix(in_oklab,var(--brand)_50%,transparent),transparent_60%)]" />

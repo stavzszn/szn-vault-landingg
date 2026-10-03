@@ -45,7 +45,7 @@ export function Gallery() {
   const depth = compact ? 160 : 220;
 
   return (
-    <section className="w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-16">
+    <section className="w-full overflow-hidden px-4 py-14 sm:px-6 sm:py-20">
       <p className="mb-10 text-center text-[12px] font-bold tracking-[0.2em] text-nav-muted">
         MADE ENTIRELY WITH SZNVAULT
       </p>
