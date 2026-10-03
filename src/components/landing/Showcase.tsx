@@ -73,15 +73,15 @@ export function Testimonials() {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {quotes.map((q, i) => {
+        {reviews.map((r, i) => {
           const offset = ((i - active + half + n) % n) - half;
           const abs = Math.abs(offset);
           return (
             <button
-              key={q.name}
+              key={r.src}
               onClick={() => setActive(i)}
-              aria-label={`Show review from ${q.name}`}
-              className="absolute left-1/2 top-1/2 h-[160px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d] sm:h-[170px]"
+              aria-label={`Show review ${i + 1}`}
+              className="absolute left-1/2 top-1/2 h-[140px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d] sm:h-[220px]"
               style={{
                 width: cardW,
                 transform: `translateX(calc(-50% + ${offset * step}px)) translateZ(${-abs * depth}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 32 : -32}deg) scale(${1 - abs * 0.06})`,
@@ -89,11 +89,13 @@ export function Testimonials() {
                 zIndex: n - abs,
               }}
             >
-              <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-nav-border bg-nav-pill p-5">
-                <blockquote className="text-[14px] leading-relaxed text-nav-muted">
-                  "{q.text}"
-                </blockquote>
-                <figcaption className="text-[13px] font-bold text-nav-foreground">{q.name}</figcaption>
+              <div className="h-full overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+                <img
+                  src={r.src}
+                  alt={r.alt}
+                  draggable={false}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </button>
           );
