@@ -25,7 +25,7 @@ export function Pricing() {
         <div className="self-center">
           <img
             src={showcaseImg.url}
-            alt="SZNVAULT"
+            alt="AI-generated blonde woman in a cream fur coat taking a mirror selfie in front of SZNVAULT graffiti"
             className="w-full rounded-3xl border border-nav-border object-cover"
           />
         </div>

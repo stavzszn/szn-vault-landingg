@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 const logoUrl = "/logo.png";
 
 const navigation = [
-  { label: "How it works", href: "#" },
   { label: "Tutorials", href: "#tutorials" },
   { label: "Pricing", href: "#pricing" },
   { label: "Testimonials", href: "#testimonials" },

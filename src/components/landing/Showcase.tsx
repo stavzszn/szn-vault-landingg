@@ -64,7 +64,7 @@ export function Testimonials() {
   const depth = compact ? 180 : 240;
 
   return (
-    <Section>
+    <Section id="testimonials">
       <Heading>The users speak for themselves</Heading>
       <div
         className="relative mx-auto mt-10 h-[150px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[230px]"
@@ -107,7 +107,7 @@ export function Testimonials() {
 
 export function Tutorials() {
   return (
-    <Section>
+    <Section id="tutorials">
       <Heading>Everything in one place</Heading>
       <Sub>{"\n"}</Sub>
       {(() => {
