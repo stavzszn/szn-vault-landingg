@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { Play } from "lucide-react";
 import { Section, Heading, Sub, useCompact } from "./Primitives";
+import HERO_VIDEO from "@/assets/hero-video.mp4.asset.json";
 
 // 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
 const YOUTUBE_URL = "";
@@ -119,11 +119,16 @@ export function Tutorials() {
                 />
               </div>
             ) : (
-              <div className="relative grid aspect-video w-full place-items-center bg-gradient-to-br from-nav-pill to-nav-pill-active">
-                <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_50%_40%,color-mix(in_oklab,var(--brand)_45%,transparent),transparent_65%)]" />
-                <span className="relative grid size-16 place-items-center rounded-full bg-nav-foreground text-nav">
-                  <Play className="size-6 translate-x-0.5 fill-current" />
-                </span>
+              <div className="aspect-video w-full">
+                <video
+                  src={HERO_VIDEO.url}
+                  title="Everything in one place"
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
               </div>
             )}
           </div>
