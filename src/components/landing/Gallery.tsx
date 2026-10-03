@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { useCompact } from "./Primitives";
-import img1 from "@/assets/bsfd.webp.asset.json";
+import img1 from "@/assets/bsfd.png.asset.json";
 import img2 from "@/assets/nyt.png.asset.json";
 import img3 from "@/assets/nhg.png.asset.json";
 import img4 from "@/assets/vfds.png.asset.json";
-import img5 from "@/assets/bfd.webp.asset.json";
+import img5 from "@/assets/bfd.png.asset.json";
 
 const items = [
   { src: img1.url, alt: "AI model sample 1" },
