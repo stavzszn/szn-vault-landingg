@@ -33,35 +33,6 @@ function getYouTubeEmbed(url: string): string | null {
   return null;
 }
 
-const quotes = [
-  {
-    name: "@jaymakes",
-    text: "First page hit 120k followers in two months. Never touched a camera.",
-  },
-  { name: "@lumen.ai", text: "Made back the cost in 9 days from one Fanvue account." },
-  { name: "@sofiabuilds", text: "The face-consistency method is the part nobody else teaches." },
-  { name: "@0xnate", text: "Runs fine on my 3060. Cloud GPU section saved me a rebuild." },
-  {
-    name: "@gng",
-    text: "I was struggling 5 months to learn and find some decent workflows, but your workflows are goated.",
-  },
-  {
-    name: "@vaulted",
-    text: "Damn bro the vault has crazy value. I finally understand how to create images and videos in comfyui.",
-  },
-  {
-    name: "@member",
-    text: "I created some videos using your workflows, i got 100k views in 2 days 😂😂",
-  },
-  {
-    name: "SMALOVSKI",
-    text: "I just tried the image gen workflow, its wild. You fr should charge more, the value in this group is crazy.",
-  },
-  {
-    name: "@k22",
-    text: "The best workflows on the market fr. And a lot of good stuff in the vault.",
-  },
-];
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
