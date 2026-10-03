@@ -67,7 +67,7 @@ export function Testimonials() {
     <Section>
       <Heading>The users speak for themselves</Heading>
       <div
-        className="relative mx-auto mt-10 h-[170px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[190px]"
+        className="relative mx-auto mt-10 h-[150px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[230px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
