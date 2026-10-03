@@ -1,17 +1,17 @@
 import { useRef, useState } from "react";
 import { useCompact } from "./Primitives";
-import img1 from "@/assets/bsfd.png.asset.json";
-import img2 from "@/assets/nyt.png.asset.json";
-import img3 from "@/assets/nhg.png.asset.json";
-import img4 from "@/assets/vfds.png.asset.json";
-import img5 from "@/assets/bfd.png.asset.json";
+import img1 from "@/assets/bsfd.png";
+import img2 from "@/assets/nyt.png";
+import img3 from "@/assets/nhg.png";
+import img4 from "@/assets/vfds.png";
+import img5 from "@/assets/bfd.png";
 
 const items = [
-  { src: img1.url, alt: "AI model sample 1" },
-  { src: img2.url, alt: "AI model sample 2" },
-  { src: img3.url, alt: "AI model sample 3" },
-  { src: img4.url, alt: "AI model sample 4" },
-  { src: img5.url, alt: "AI model sample 5" },
+  { src: img1, alt: "AI model sample 1" },
+  { src: img2, alt: "AI model sample 2" },
+  { src: img3, alt: "AI model sample 3" },
+  { src: img4, alt: "AI model sample 4" },
+  { src: img5, alt: "AI model sample 5" },
 ];
 
 export function Gallery() {
