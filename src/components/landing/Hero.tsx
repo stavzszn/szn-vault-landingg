@@ -14,11 +14,11 @@ export function Hero() {
   return (
     <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="relative mx-auto aspect-square max-w-[65%] overflow-hidden rounded-3xl border border-nav-border">
+        <div className="mx-auto w-[65%] overflow-hidden rounded-3xl border border-nav-border">
           <img
             src={heroImage.url}
             alt="SZNVAULT"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="block h-auto w-full"
           />
         </div>
 
