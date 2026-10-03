@@ -1,6 +1,19 @@
 import { useRef, useState } from "react";
 import { Section, Heading, Sub, useCompact } from "./Primitives";
 import HERO_VIDEO from "@/assets/hero-video.mp4.asset.json";
+import review1 from "@/assets/review-1.png";
+import review2 from "@/assets/review-2.png";
+import review3 from "@/assets/review-3.png";
+import review4 from "@/assets/review-4.png";
+import review5 from "@/assets/review-5.png";
+
+const reviews = [
+  { src: review1, alt: "User review — finally learned how to create AI content in ComfyUI" },
+  { src: review2, alt: "User review" },
+  { src: review3, alt: "User review" },
+  { src: review4, alt: "User review" },
+  { src: review5, alt: "User review" },
+];
 
 // 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
 const YOUTUBE_URL = "";
@@ -20,40 +33,11 @@ function getYouTubeEmbed(url: string): string | null {
   return null;
 }
 
-const quotes = [
-  {
-    name: "@jaymakes",
-    text: "First page hit 120k followers in two months. Never touched a camera.",
-  },
-  { name: "@lumen.ai", text: "Made back the cost in 9 days from one Fanvue account." },
-  { name: "@sofiabuilds", text: "The face-consistency method is the part nobody else teaches." },
-  { name: "@0xnate", text: "Runs fine on my 3060. Cloud GPU section saved me a rebuild." },
-  {
-    name: "@gng",
-    text: "I was struggling 5 months to learn and find some decent workflows, but your workflows are goated.",
-  },
-  {
-    name: "@vaulted",
-    text: "Damn bro the vault has crazy value. I finally understand how to create images and videos in comfyui.",
-  },
-  {
-    name: "@member",
-    text: "I created some videos using your workflows, i got 100k views in 2 days 😂😂",
-  },
-  {
-    name: "SMALOVSKI",
-    text: "I just tried the image gen workflow, its wild. You fr should charge more, the value in this group is crazy.",
-  },
-  {
-    name: "@k22",
-    text: "The best workflows on the market fr. And a lot of good stuff in the vault.",
-  },
-];
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
   const drag = useRef<{ x: number; moved: boolean } | null>(null);
-  const n = quotes.length;
+  const n = reviews.length;
 
   const move = (dir: number) => setActive((i) => (i + dir + n) % n);
 
@@ -75,29 +59,29 @@ export function Testimonials() {
 
   const half = Math.floor(n / 2);
   const compact = useCompact();
-  const cardW = compact ? 240 : 300;
-  const step = compact ? 165 : 260;
+  const cardW = compact ? 280 : 460;
+  const step = compact ? 185 : 300;
   const depth = compact ? 180 : 240;
 
   return (
     <Section>
       <Heading>The users speak for themselves</Heading>
       <div
-        className="relative mx-auto mt-10 h-[170px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[190px]"
+        className="relative mx-auto mt-10 h-[150px] max-w-5xl touch-pan-y select-none [perspective:1200px] sm:h-[230px]"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {quotes.map((q, i) => {
+        {reviews.map((r, i) => {
           const offset = ((i - active + half + n) % n) - half;
           const abs = Math.abs(offset);
           return (
             <button
-              key={q.name}
+              key={r.src}
               onClick={() => setActive(i)}
-              aria-label={`Show review from ${q.name}`}
-              className="absolute left-1/2 top-1/2 h-[160px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d] sm:h-[170px]"
+              aria-label={`Show review ${i + 1}`}
+              className="absolute left-1/2 top-1/2 h-[140px] -translate-y-1/2 cursor-pointer text-left transition-all duration-500 ease-out [transform-style:preserve-3d] sm:h-[220px]"
               style={{
                 width: cardW,
                 transform: `translateX(calc(-50% + ${offset * step}px)) translateZ(${-abs * depth}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 32 : -32}deg) scale(${1 - abs * 0.06})`,
@@ -105,11 +89,13 @@ export function Testimonials() {
                 zIndex: n - abs,
               }}
             >
-              <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-nav-border bg-nav-pill p-5">
-                <blockquote className="text-[14px] leading-relaxed text-nav-muted">
-                  "{q.text}"
-                </blockquote>
-                <figcaption className="text-[13px] font-bold text-nav-foreground">{q.name}</figcaption>
+              <div className="h-full overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+                <img
+                  src={r.src}
+                  alt={r.alt}
+                  draggable={false}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </button>
           );
