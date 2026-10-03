@@ -1,4 +1,5 @@
-import { Check, Play } from "lucide-react";
+import { Check } from "lucide-react";
+import heroImage from "@/assets/hero-image.png.asset.json";
 
 const bullets = [
   "Full step-by-step training from zero",
@@ -13,19 +14,12 @@ export function Hero() {
   return (
     <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="relative aspect-video overflow-hidden rounded-3xl border border-nav-border bg-gradient-to-br from-nav-pill to-nav-pill-active">
-          <div className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle_at_70%_30%,color-mix(in_oklab,var(--brand)_50%,transparent),transparent_60%)]" />
-          <button
-            aria-label="Play intro video"
-            className="absolute inset-0 grid place-items-center"
-          >
-            <span className="grid size-16 place-items-center rounded-full bg-nav-foreground text-nav transition-transform hover:scale-105">
-              <Play className="size-6 translate-x-0.5 fill-current" />
-            </span>
-          </button>
-          <span className="absolute bottom-4 left-4 rounded-full bg-nav/70 px-3 py-1 text-[11px] font-semibold tracking-[0.1em] text-nav-foreground backdrop-blur">
-            04:12
-          </span>
+        <div className="relative aspect-video overflow-hidden rounded-3xl border border-nav-border">
+          <img
+            src={heroImage.url}
+            alt="SZNVAULT"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
 
         <h1 className="mt-8 text-center text-2xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-3xl md:text-4xl">
