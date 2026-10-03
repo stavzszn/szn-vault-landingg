@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Section, Heading, Sub, useCompact } from "./Primitives";
-import HERO_VIDEO from "@/assets/hero-video.mp4.asset.json";
+import HERO_VIDEO from "@/assets/hero-video.mp4";
 import review1 from "@/assets/review-1.png";
 import review2 from "@/assets/review-2.png";
 import review3 from "@/assets/review-3.png";
@@ -127,7 +127,7 @@ export function Tutorials() {
             ) : (
               <div className="aspect-video w-full">
                 <video
-                  src={HERO_VIDEO.url}
+                  src={HERO_VIDEO}
                   title="Everything in one place"
                   className="h-full w-full object-cover"
                   autoPlay

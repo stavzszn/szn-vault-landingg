@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Section, Heading } from "./Primitives";
-import showcaseImg from "@/assets/pricing-showcase.png.asset.json";
+import showcaseImg from "@/assets/pricing-showcase.png";
 
 export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
 
@@ -24,7 +24,7 @@ export function Pricing() {
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <div className="self-center">
           <img
-            src={showcaseImg.url}
+            src={showcaseImg}
             alt="AI-generated blonde woman in a cream fur coat taking a mirror selfie in front of SZNVAULT graffiti"
             className="w-full rounded-3xl border border-nav-border object-cover"
           />
