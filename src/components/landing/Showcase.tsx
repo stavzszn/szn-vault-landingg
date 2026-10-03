@@ -1,6 +1,19 @@
 import { useRef, useState } from "react";
 import { Section, Heading, Sub, useCompact } from "./Primitives";
 import HERO_VIDEO from "@/assets/hero-video.mp4.asset.json";
+import review1 from "@/assets/review-1.png";
+import review2 from "@/assets/review-2.png";
+import review3 from "@/assets/review-3.png";
+import review4 from "@/assets/review-4.png";
+import review5 from "@/assets/review-5.png";
+
+const reviews = [
+  { src: review1, alt: "User review — finally learned how to create AI content in ComfyUI" },
+  { src: review2, alt: "User review" },
+  { src: review3, alt: "User review" },
+  { src: review4, alt: "User review" },
+  { src: review5, alt: "User review" },
+];
 
 // 👇 Paste your YouTube link here (watch, youtu.be or shorts links all work)
 const YOUTUBE_URL = "";
