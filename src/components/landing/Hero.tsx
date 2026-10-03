@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="relative aspect-video overflow-hidden rounded-3xl border border-nav-border">
+        <div className="relative aspect-square overflow-hidden rounded-3xl border border-nav-border">
           <img
             src={heroImage.url}
             alt="SZNVAULT"
