@@ -6,7 +6,7 @@ export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
 
 const included = [
   "Step-by-step video tutorials",
-  "More than 9 ComfyUI workflows",
+  "More than 6 ComfyUI workflows",
   "Prompt and workflow library",
   "Promt and Captioning studios",
   "Cloud GPU setup guide",
