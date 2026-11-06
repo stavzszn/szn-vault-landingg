@@ -14,7 +14,10 @@ export function Hero() {
   return (
     <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="mx-auto w-full overflow-hidden rounded-3xl border border-nav-border">
+        <div
+          className="mx-auto w-full overflow-hidden border border-nav-border"
+          style={{ borderRadius: "calc(min(100vw - 3rem, 64rem) * 0.1126)" }}
+        >
           <img
             src={heroImage}
             alt="Three AI-generated women beside a black BMW at a night gas station under a glowing SZN VAULT sign"
