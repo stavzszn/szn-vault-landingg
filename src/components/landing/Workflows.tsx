@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { Section, Heading } from "./Primitives";
-import wfSkinBefore from "@/assets/wf-skin-before.jpg";
-import wfSkinAfter from "@/assets/wf-skin-after.jpg";
+import wfMotionBefore from "@/assets/wf-motion-before.mp4";
+import wfMotionAfter from "@/assets/wf-motion-after.mp4";
 import wfFaceBefore from "@/assets/wf-face-before.png";
 import wfFaceAfter from "@/assets/wf-face-after.png";
 import wfEditBefore from "@/assets/wf-edit-before.png";
@@ -10,14 +10,25 @@ import wfEditAfter from "@/assets/wf-edit-after.png";
 import wfBgBefore from "@/assets/wf-bg-before.jpg";
 import wfBgAfter from "@/assets/wf-bg-after.jpg";
 
-type Pair = { title: string; desc: string; before: string; after: string };
+type Kind = "image" | "video";
+
+type Pair = {
+  title: string;
+  desc: string;
+  before: string;
+  after: string;
+  beforeKind?: Kind;
+  afterKind?: Kind;
+};
 
 const WORKFLOWS: Pair[] = [
   {
     title: "MOTION CONTROL EXAMPLE",
     desc: "Steer the movement, frame by frame.",
-    before: wfSkinBefore,
-    after: wfSkinAfter,
+    before: wfMotionBefore,
+    after: wfMotionAfter,
+    beforeKind: "video",
+    afterKind: "video",
   },
   {
     title: "FACESWAP EXAMPLE",
@@ -39,29 +50,66 @@ const WORKFLOWS: Pair[] = [
   },
 ];
 
+function Media({
+  src,
+  kind,
+  alt,
+  muted,
+}: {
+  src: string;
+  kind: Kind;
+  alt: string;
+  muted?: boolean;
+}) {
+  if (kind === "video") {
+    return (
+      <video
+        src={src}
+        autoPlay
+        muted={muted}
+        loop
+        playsInline
+        aria-label={alt}
+        ref={(el) => {
+          if (el) el.muted = true;
+        }}
+        className="absolute inset-0 h-full w-full object-cover"
+        draggable={false}
+      />
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="absolute inset-0 h-full w-full object-cover"
+      draggable={false}
+      loading="lazy"
+    />
+  );
+}
+
 function CompareCard({ pair }: { pair: Pair }) {
   const [pos, setPos] = useState(50);
 
   return (
     <div className="overflow-hidden rounded-lg border border-nav-border bg-nav-pill focus-within:ring-2 focus-within:ring-brand">
       <div className="relative aspect-[3/4] w-full select-none">
-        <img
+        <Media
           src={pair.after}
+          kind={pair.afterKind ?? "image"}
           alt={`${pair.title} after`}
-          className="absolute inset-0 h-full w-full object-cover"
-          draggable={false}
-          loading="lazy"
+          muted
         />
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
-          <img
+          <Media
             src={pair.before}
+            kind={pair.beforeKind ?? "image"}
             alt={`${pair.title} before`}
-            className="absolute inset-0 h-full w-full object-cover"
-            draggable={false}
-            loading="lazy"
+            muted
           />
         </div>
         {/* divider line + handle */}
