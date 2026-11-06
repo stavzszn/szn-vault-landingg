@@ -14,8 +14,8 @@ type Pair = { title: string; desc: string; before: string; after: string };
 
 const WORKFLOWS: Pair[] = [
   {
-    title: "SKIN ENHANCE EXAMPLE",
-    desc: "One-click skin cleanup that keeps the photo real.",
+    title: "MOTION CONTROL EXAMPLE",
+    desc: "Steer the movement, frame by frame.",
     before: wfSkinBefore,
     after: wfSkinAfter,
   },
@@ -26,14 +26,14 @@ const WORKFLOWS: Pair[] = [
     after: wfFaceAfter,
   },
   {
-    title: "OUTFIT CHANGE EXAMPLE",
-    desc: "New fits without a new photoshoot.",
+    title: "IMAGE EDIT EXAMPLE",
+    desc: "Edit any detail without a reshoot.",
     before: wfOutfitBefore,
     after: wfOutfitAfter,
   },
   {
-    title: "BACKGROUND SWAP EXAMPLE",
-    desc: "Anywhere in the world, from your bedroom.",
+    title: "CAROUSEL GEN EXAMPLE",
+    desc: "One photo in, a full set out.",
     before: wfBgBefore,
     after: wfBgAfter,
   },
