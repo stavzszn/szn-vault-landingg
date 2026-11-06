@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep workflow before/after comparisons in the landing Workflows component using native range inputs so dragging, touch, and keyboard control share one value.

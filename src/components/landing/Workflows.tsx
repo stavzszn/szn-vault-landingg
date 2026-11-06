@@ -1,6 +1,6 @@
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
-import { Section, Heading, Sub } from "./Primitives";
+import { Section, Heading } from "./Primitives";
 import wfSkinBefore from "@/assets/wf-skin-before.jpg";
 import wfSkinAfter from "@/assets/wf-skin-after.jpg";
 import wfFaceBefore from "@/assets/wf-face-before.jpg";
@@ -41,36 +41,16 @@ const WORKFLOWS: Pair[] = [
 
 function CompareCard({ pair }: { pair: Pair }) {
   const [pos, setPos] = useState(50);
-  const ref = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const update = useCallback((clientX: number) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const pct = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.min(96, Math.max(4, pct)));
-  }, []);
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-nav-border bg-nav-pill">
-      <div
-        ref={ref}
-        className="relative aspect-[3/4] w-full cursor-ew-resize touch-none select-none"
-        onPointerDown={(e) => {
-          dragging.current = true;
-          (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-          update(e.clientX);
-        }}
-        onPointerMove={(e) => dragging.current && update(e.clientX)}
-        onPointerUp={() => (dragging.current = false)}
-        onPointerCancel={() => (dragging.current = false)}
-      >
+    <div className="overflow-hidden rounded-lg border border-nav-border bg-nav-pill focus-within:ring-2 focus-within:ring-brand">
+      <div className="relative aspect-[3/4] w-full select-none">
         <img
           src={pair.after}
           alt={`${pair.title} after`}
           className="absolute inset-0 h-full w-full object-cover"
           draggable={false}
+          loading="lazy"
         />
         <div
           className="absolute inset-0 overflow-hidden"
@@ -81,32 +61,41 @@ function CompareCard({ pair }: { pair: Pair }) {
             alt={`${pair.title} before`}
             className="absolute inset-0 h-full w-full object-cover"
             draggable={false}
+            loading="lazy"
           />
         </div>
         {/* divider line + handle */}
         <div
-          className="absolute inset-y-0 w-[2px] bg-white/90 shadow-[0_0_12px_rgba(0,0,0,0.5)]"
+          className="pointer-events-none absolute inset-y-0 w-[2px] bg-nav-foreground/90"
           style={{ left: `calc(${pos}% - 1px)` }}
         />
         <div
-          className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/60 backdrop-blur-sm"
+          className="pointer-events-none absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-nav-foreground/40 bg-nav-foreground"
           style={{ left: `${pos}%` }}
         >
-          <ChevronsLeftRight className="h-4 w-4 text-white" />
+          <ChevronsLeftRight className="h-4 w-4 text-nav" />
         </div>
-        {/* labels */}
-        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white/80 backdrop-blur-sm">
+        <p className="pointer-events-none absolute inset-x-3 top-3 text-center">
+          <span className="inline-block rounded-full bg-nav/85 px-3 py-1 text-[10px] font-extrabold text-nav-foreground sm:text-xs">
+            {pair.title}
+          </span>
+        </p>
+        <span className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-nav/70 px-2.5 py-1 text-[10px] font-bold text-nav-foreground backdrop-blur-sm">
           BEFORE
         </span>
-        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-widest text-white/80 backdrop-blur-sm">
+        <span className="pointer-events-none absolute bottom-3 right-3 rounded-full bg-nav/70 px-2.5 py-1 text-[10px] font-bold text-nav-foreground backdrop-blur-sm">
           AFTER
         </span>
-      </div>
-      <div className="p-5">
-        <p className="text-sm font-extrabold tracking-wide text-foreground">
-          {pair.title}
-        </p>
-        <p className="mt-1 text-[13px] text-muted-foreground">{pair.desc}</p>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          value={pos}
+          onChange={(event) => setPos(Number(event.target.value))}
+          aria-label={`Compare ${pair.title.toLowerCase()}`}
+          aria-valuetext={`${pos}% before image`}
+          className="absolute inset-0 m-0 h-full w-full cursor-ew-resize opacity-0"
+        />
       </div>
     </div>
   );
@@ -115,10 +104,7 @@ function CompareCard({ pair }: { pair: Pair }) {
 export function Workflows() {
   return (
     <Section id="workflows">
-      <Heading>7 plug &amp; play workflows</Heading>
-      <Sub>
-        Drag the slider — every workflow comes ready to run, no setup needed.
-      </Sub>
+      <Heading>Plug and Use ComfyUI Workflows</Heading>
       <div className="mx-auto mt-10 max-w-[820px]">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {WORKFLOWS.map((pair) => (

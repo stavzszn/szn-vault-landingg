@@ -6,6 +6,7 @@ import { Hero } from "@/components/landing/Hero";
 import { Testimonials, Tutorials } from "@/components/landing/Showcase";
 import { Gallery } from "@/components/landing/Gallery";
 import { Pricing } from "@/components/landing/Pricing";
+import { Workflows } from "@/components/landing/Workflows";
 
 const description =
   "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers with step-by-step tutorials, 9+ ComfyUI workflows and lifetime updates.";
@@ -55,6 +56,7 @@ function Index() {
         <Gallery />
         <Testimonials />
         <Tutorials />
+        <Workflows />
         <Pricing />
         <div id="faq">
           <Faq />
