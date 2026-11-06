@@ -5,8 +5,8 @@ import wfSkinBefore from "@/assets/wf-skin-before.jpg";
 import wfSkinAfter from "@/assets/wf-skin-after.jpg";
 import wfFaceBefore from "@/assets/wf-face-before.png";
 import wfFaceAfter from "@/assets/wf-face-after.png";
-import wfOutfitBefore from "@/assets/wf-outfit-before.jpg";
-import wfOutfitAfter from "@/assets/wf-outfit-after.jpg";
+import wfEditBefore from "@/assets/wf-edit-before.png";
+import wfEditAfter from "@/assets/wf-edit-after.png";
 import wfBgBefore from "@/assets/wf-bg-before.jpg";
 import wfBgAfter from "@/assets/wf-bg-after.jpg";
 
@@ -28,8 +28,8 @@ const WORKFLOWS: Pair[] = [
   {
     title: "IMAGE EDIT EXAMPLE",
     desc: "Edit any detail without a reshoot.",
-    before: wfOutfitBefore,
-    after: wfOutfitAfter,
+    before: wfEditBefore,
+    after: wfEditAfter,
   },
   {
     title: "CAROUSEL GEN EXAMPLE",
