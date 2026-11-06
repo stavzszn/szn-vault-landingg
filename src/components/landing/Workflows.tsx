@@ -7,8 +7,8 @@ import wfFaceBefore from "@/assets/wf-face-before.png";
 import wfFaceAfter from "@/assets/wf-face-after.png";
 import wfEditBefore from "@/assets/wf-edit-before.png";
 import wfEditAfter from "@/assets/wf-edit-after.png";
-import wfBgBefore from "@/assets/wf-bg-before.jpg";
-import wfBgAfter from "@/assets/wf-bg-after.jpg";
+import wfCarouselBefore from "@/assets/wf-carousel-before.png";
+import wfCarouselAfter from "@/assets/wf-carousel-after.png";
 
 type Kind = "image" | "video";
 
@@ -45,8 +45,8 @@ const WORKFLOWS: Pair[] = [
   {
     title: "CAROUSEL GEN EXAMPLE",
     desc: "One photo in, a full set out.",
-    before: wfBgBefore,
-    after: wfBgAfter,
+    before: wfCarouselBefore,
+    after: wfCarouselAfter,
   },
 ];
 
