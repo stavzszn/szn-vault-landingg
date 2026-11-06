@@ -4,8 +4,19 @@ const logoUrl = "/logo.png";
 
 const tabs = ["MAIN", "DISCORD"] as const;
 
+const DISCORD_URL = "https://discord.gg/MkHv3SSGZ3";
+
 export function Navbar() {
   const [active, setActive] = useState<(typeof tabs)[number]>("MAIN");
+
+  const handleTab = (tab: (typeof tabs)[number]) => {
+    if (tab === "DISCORD") {
+      window.open(DISCORD_URL, "_blank", "noopener,noreferrer");
+      setActive("MAIN");
+      return;
+    }
+    setActive(tab);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
@@ -22,7 +33,7 @@ export function Navbar() {
             {tabs.map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActive(tab)}
+                onClick={() => handleTab(tab)}
                 className={`rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] transition-colors sm:px-6 sm:py-2 sm:text-[13px] ${
                   active === tab
                     ? "bg-nav-pill-active text-nav-foreground"
