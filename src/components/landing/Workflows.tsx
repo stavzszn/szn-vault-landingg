@@ -101,6 +101,49 @@ function CompareCard({ pair }: { pair: Pair }) {
   );
 }
 
+const GRID =
+  "linear-gradient(to right, color-mix(in oklab, var(--nav-foreground) 6%, transparent) 1px, transparent 1px), " +
+  "linear-gradient(to bottom, color-mix(in oklab, var(--nav-foreground) 6%, transparent) 1px, transparent 1px)";
+
+const DUST = [
+  "radial-gradient(circle 1.5px at 10% 26%, color-mix(in oklab, var(--nav-foreground) 75%, transparent) 48%, transparent 52%)",
+  "radial-gradient(circle 1px at 28% 72%, color-mix(in oklab, var(--nav-foreground) 50%, transparent) 48%, transparent 52%)",
+  "radial-gradient(circle 2px at 52% 18%, color-mix(in oklab, var(--nav-foreground) 60%, transparent) 48%, transparent 52%)",
+  "radial-gradient(circle 1px at 68% 58%, color-mix(in oklab, var(--nav-foreground) 45%, transparent) 48%, transparent 52%)",
+  "radial-gradient(circle 1.5px at 86% 34%, color-mix(in oklab, var(--nav-foreground) 65%, transparent) 48%, transparent 52%)",
+  "radial-gradient(circle 1px at 42% 86%, color-mix(in oklab, var(--nav-foreground) 40%, transparent) 48%, transparent 52%)",
+].join(", ");
+
+const FADE = "radial-gradient(ellipse 75% 85% at 50% 50%, black 20%, transparent 78%)";
+
+function MoreWorkflows() {
+  return (
+    <div className="relative mt-5 overflow-hidden rounded-3xl border border-nav-border bg-nav-pill px-6 py-10 text-center sm:px-10 sm:py-14">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          backgroundImage: GRID,
+          backgroundSize: "32px 32px",
+          maskImage: FADE,
+          WebkitMaskImage: FADE,
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{ backgroundImage: DUST }}
+      />
+      <h3 className="relative text-2xl font-extrabold tracking-[-0.02em] sm:text-3xl">
+        <span className="text-nav-foreground">And</span>{" "}
+        <span className="text-nav-muted">2 more workflows</span>
+      </h3>
+      <p className="relative mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-nav-muted md:text-sm">
+        Besides these workflows, we also have an image generation workflow and an
+        image-to-video workflow, adding up to 6 workflows in the vault.
+      </p>
+    </div>
+  );
+}
+
 export function Workflows() {
   return (
     <Section id="workflows">
@@ -111,6 +154,7 @@ export function Workflows() {
             <CompareCard key={pair.title} pair={pair} />
           ))}
         </div>
+        <MoreWorkflows />
       </div>
     </Section>
   );
