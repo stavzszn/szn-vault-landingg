@@ -9,7 +9,7 @@ import { Pricing } from "@/components/landing/Pricing";
 import { Workflows } from "@/components/landing/Workflows";
 
 const description =
-  "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers with step-by-step tutorials, 9+ ComfyUI workflows and lifetime updates.";
+  "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers with step-by-step tutorials, 6+ ComfyUI workflows and lifetime updates.";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
