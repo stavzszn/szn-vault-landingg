@@ -50,7 +50,9 @@ export function Hero() {
               GET INSTANT ACCESS
             </a>
             <a
-              href="#faq"
+              href="https://vault.sznvault.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-nav-border px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav-foreground transition-colors hover:bg-nav-pill"
             >
               SEE WHAT'S INSIDE
