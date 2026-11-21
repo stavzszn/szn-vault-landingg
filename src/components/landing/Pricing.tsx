@@ -20,8 +20,8 @@ const bonuses = [
 export function Pricing() {
   return (
     <Section id="pricing">
-      <Heading>Everything you could ever need</Heading>
-      <div className="mt-8 grid gap-8 md:grid-cols-2">
+      <Heading>Everything you could <span className="font-serif font-normal italic">ever need.</span></Heading>
+      <div className="relative mt-10 grid gap-8 overflow-hidden rounded-[2rem] border border-nav-border bg-nav-pill/60 p-5 shadow-soft glow-soft sm:p-8 md:grid-cols-2">
         <div className="self-center">
           <img
             src={showcaseImg}
@@ -35,7 +35,7 @@ export function Pricing() {
           <ul className="mt-3 flex flex-col gap-2">
             {included.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[14px] text-nav-muted">
-                <Check className="mt-0.5 size-4 shrink-0 text-brand" />
+                <Check className="mt-0.5 size-4 shrink-0 text-nav-foreground/80" />
                 <span>{i}</span>
               </li>
             ))}
@@ -47,7 +47,7 @@ export function Pricing() {
           <ul className="mt-3 flex flex-col gap-2">
             {bonuses.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[14px] text-nav-muted">
-                <Check className="mt-0.5 size-4 shrink-0 text-brand" />
+                <Check className="mt-0.5 size-4 shrink-0 text-nav-foreground/80" />
                 <span>{i}</span>
               </li>
             ))}
@@ -63,7 +63,7 @@ export function Pricing() {
               rel="noopener noreferrer"
               className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
             >
-              GET ACCESS — €47 <span className="line-through opacity-50">€149</span>
+              GET ACCESS — €47 <span className="line-through opacity-50">€97</span>
             </a>
             <p className="text-center text-[12px] leading-relaxed text-nav-muted">
               One-time payment. Instant access.
@@ -82,7 +82,7 @@ export function Pricing() {
               href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-brand px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-brand-foreground transition-opacity hover:opacity-90"
+              className="rounded-full bg-nav-pill-active px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav-foreground transition-opacity hover:opacity-90"
             >
               JOIN NOW
             </a>

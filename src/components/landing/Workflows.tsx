@@ -93,7 +93,7 @@ function CompareCard({ pair }: { pair: Pair }) {
   const [pos, setPos] = useState(50);
 
   return (
-    <div className="overflow-hidden rounded-lg border border-nav-border bg-nav-pill focus-within:ring-2 focus-within:ring-brand">
+    <div className="overflow-hidden rounded-3xl border border-nav-border bg-nav-pill shadow-soft focus-within:ring-2 focus-within:ring-nav-foreground/40">
       <div className="relative aspect-[3/4] w-full select-none">
         <Media
           src={pair.after}

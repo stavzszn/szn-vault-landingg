@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
-import heroImage from "@/assets/hero-image.png";
+import { galleryPhotos } from "@/lib/archive-photos";
+import { CHECKOUT_URL } from "./Pricing";
 
 const bullets = [
   "Full step-by-step training from zero",
@@ -10,60 +11,85 @@ const bullets = [
   "Lifetime access, one payment, no subscriptions",
 ];
 
+const letters = "SZNVAULT".split("");
+
 export function Hero() {
   return (
-    <section className="w-full px-4 py-14 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-5xl">
-        <div className="mx-auto w-full overflow-hidden [border-radius:6.3%/11.2%]">
-          <img
-            src={heroImage}
-            alt="Three AI-generated women beside a black BMW at a night gas station under a glowing SZN VAULT sign"
-            className="block h-auto w-full"
-          />
-        </div>
-
-        <h1 className="mt-8 text-center text-2xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-3xl md:text-4xl">
-          Run your own AI influencers with SZNVAULT
+    <section className="relative w-full overflow-hidden px-4 pb-14 pt-10 sm:px-6 sm:pb-24 sm:pt-16">
+      <div className="pointer-events-none absolute inset-0 glow-soft" />
+      <div className="relative mx-auto max-w-6xl">
+        <h1 aria-label="SZNVAULT" className="flex justify-center select-none">
+          {letters.map((l, i) => {
+            const photo = galleryPhotos[i % galleryPhotos.length]!;
+            return (
+              <span
+                key={i}
+                aria-hidden
+                className="animate-rise bg-cover bg-center bg-clip-text text-[19vw] font-black leading-[0.85] tracking-[-0.06em] text-transparent [-webkit-background-clip:text] lg:text-[190px]"
+                style={{ backgroundImage: `url(${photo.src})`, animationDelay: `${i * 70}ms` }}
+              >
+                {l}
+              </span>
+            );
+          })}
         </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-[14px] leading-relaxed text-nav-muted">
-          The full playbook for creating, training and monetizing hyper-realistic AI models. No coding, no agency, no monthly software bills.
-        </p>
 
-        <div className="mx-auto max-w-3xl">
-          <p className="mt-7 text-[13px] font-bold tracking-[0.12em] text-nav-foreground">
-            WHAT YOU GET
-          </p>
-          <ul className="mt-3 flex flex-col gap-2">
-            {bullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 text-[14px] text-nav-muted">
-                <Check className="mt-0.5 size-4 shrink-0 text-brand" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-col gap-3">
-            <a
-              href="#pricing"
-              className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
-            >
-              GET INSTANT ACCESS
-            </a>
-            <a
-              href="https://vault.sznvault.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-nav-border px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav-foreground transition-colors hover:bg-nav-pill"
-            >
-              SEE WHAT'S INSIDE
-            </a>
+        <div className="mt-10 grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-end">
+          <div className="animate-rise [animation-delay:500ms]">
+            <p className="text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-nav-foreground sm:text-5xl">
+              Everything in one vault.
+              <br />
+              <span className="font-serif font-normal italic">One payment.</span>
+            </p>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-nav-muted">
+              The full playbook for creating, training and monetizing hyper-realistic AI models. No coding, no agency, no monthly software bills.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-nav-foreground px-7 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-shadow hover:shadow-soft"
+              >
+                GET INSTANT ACCESS
+              </a>
+              <a
+                href="https://vault.sznvault.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-nav-border px-7 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav-foreground transition-colors hover:bg-nav-pill"
+              >
+                SEE WHAT'S INSIDE
+              </a>
+            </div>
+            <p className="mt-4 text-[12px] text-nav-muted">
+              One-time payment · Lifetime updates · Instant delivery
+            </p>
           </div>
-          <p className="mt-4 text-center text-[12px] text-nav-muted">
-            One-time payment · Lifetime updates · Instant delivery
-          </p>
-        </div>
 
+          <div className="animate-rise rounded-3xl border border-nav-border bg-nav-pill/60 p-6 [animation-delay:650ms]">
+            <p className="text-[12px] font-bold tracking-[0.14em] text-nav-foreground">WHAT YOU GET</p>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {bullets.map((b) => (
+                <li key={b} className="flex items-start gap-3 text-[14px] text-nav-muted">
+                  <Check className="mt-0.5 size-4 shrink-0 text-nav-foreground/80" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
+  );
+}
+
+export function Statement() {
+  return (
+    <section className="w-full px-4 py-10 sm:px-6 sm:py-16">
+      <p className="mx-auto max-w-4xl text-center font-serif text-3xl italic leading-tight text-nav-foreground sm:text-5xl md:text-6xl">
+        Every photo on this page came out of our workflows.
+      </p>
     </section>
   );
 }

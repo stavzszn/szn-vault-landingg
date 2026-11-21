@@ -1,21 +1,22 @@
-import { useState } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 const logoUrl = "/logo.png";
 
-const tabs = ["MAIN", "DISCORD"] as const;
+const tabs = ["MAIN", "ARCHIVE", "DISCORD"] as const;
 
 const DISCORD_URL = "https://discord.gg/MkHv3SSGZ3";
 
 export function Navbar() {
-  const [active, setActive] = useState<(typeof tabs)[number]>("MAIN");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
+  const active: (typeof tabs)[number] = pathname.startsWith("/archive") ? "ARCHIVE" : "MAIN";
 
   const handleTab = (tab: (typeof tabs)[number]) => {
     if (tab === "DISCORD") {
       window.open(DISCORD_URL, "_blank", "noopener,noreferrer");
-      setActive("MAIN");
       return;
     }
-    setActive(tab);
+    navigate({ to: tab === "ARCHIVE" ? "/archive" : "/" });
   };
 
   return (
@@ -29,12 +30,12 @@ export function Navbar() {
         </a>
 
         <nav className="absolute left-1/2 -translate-x-1/2">
-          <div className="flex items-center gap-1 rounded-full bg-nav-pill p-1">
+          <div className="flex items-center gap-0.5 rounded-full bg-nav-pill p-1 sm:gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => handleTab(tab)}
-                className={`rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] transition-colors sm:px-6 sm:py-2 sm:text-[13px] ${
+                className={`rounded-full px-2 py-1.5 text-[10px] font-bold tracking-[0.08em] transition-colors sm:px-6 sm:py-2 sm:text-[13px] ${
                   active === tab
                     ? "bg-nav-pill-active text-nav-foreground"
                     : "text-nav-muted hover:text-nav-foreground"
@@ -50,7 +51,7 @@ export function Navbar() {
           href="https://whop.com/checkout/plan_Bo8NofFDjnPco"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-nav-foreground px-3.5 py-2 text-[11px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90 sm:px-5 sm:py-2.5 sm:text-[12px]"
+          className="rounded-full bg-nav-foreground px-2.5 py-2 text-[10px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90 sm:px-5 sm:py-2.5 sm:text-[12px]"
         >
           GET ACCESS
         </a>

@@ -43,20 +43,20 @@ export function Faq() {
     <section className="w-full bg-nav px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-12 text-center text-4xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-5xl">
-          Frequently asked questions
+          Frequently asked <span className="font-serif font-normal italic">questions.</span>
         </h2>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col border-t border-nav-border">
           {faqs.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-2xl bg-nav-pill transition-colors"
+                className="overflow-hidden border-b border-nav-border"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-6 px-1 py-6 text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="text-[15px] font-semibold text-nav-foreground">
@@ -74,7 +74,7 @@ export function Faq() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-[14px] leading-relaxed text-nav-muted">
+                    <p className="px-1 pb-6 text-[14px] leading-relaxed text-nav-muted">
                       {item.a}
                     </p>
                   </div>

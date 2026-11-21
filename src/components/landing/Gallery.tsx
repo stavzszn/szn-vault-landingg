@@ -1,92 +1,49 @@
-import { useRef, useState } from "react";
-import { useCompact } from "./Primitives";
-import img1 from "@/assets/gallery-1.png";
-import img2 from "@/assets/gallery-2.png";
-import img3 from "@/assets/gallery-3.png";
-import img4 from "@/assets/gallery-4.png";
-import img5 from "@/assets/gallery-5.png";
-import img6 from "@/assets/gallery-6.png";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { galleryPhotos } from "@/lib/archive-photos";
 
-const items = [
-  { src: img1, alt: "AI model sample 1" },
-  { src: img2, alt: "AI model sample 2" },
-  { src: img3, alt: "AI model sample 3" },
-  { src: img4, alt: "AI model sample 4" },
-  { src: img5, alt: "AI model sample 5" },
-  { src: img6, alt: "AI model sample 6" },
-];
+function Row({ reverse = false, offset = 0 }: { reverse?: boolean; offset?: number }) {
+  const list = [...galleryPhotos.slice(offset), ...galleryPhotos.slice(0, offset)];
+  const doubled = [...list, ...list];
+  return (
+    <div className="flex overflow-hidden">
+      <div className={`flex w-max shrink-0 gap-4 pr-4 ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
+        {doubled.map((p, i) => (
+          <img
+            key={i}
+            src={p.src}
+            alt={i < list.length ? p.alt : ""}
+            aria-hidden={i >= list.length}
+            loading="lazy"
+            draggable={false}
+            className="h-[260px] w-[190px] shrink-0 rounded-2xl border border-nav-border object-cover sm:h-[380px] sm:w-[270px]"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function Gallery() {
-  const [active, setActive] = useState(0);
-  const drag = useRef<{ x: number; moved: boolean } | null>(null);
-  const n = items.length;
-
-  const move = (dir: number) => setActive((i) => (i + dir + n) % n);
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    drag.current = { x: e.clientX, moved: false };
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-  };
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!drag.current || drag.current.moved) return;
-    const dx = e.clientX - drag.current.x;
-    if (Math.abs(dx) > 50) {
-      move(dx < 0 ? 1 : -1);
-      drag.current.moved = true;
-    }
-  };
-  const onPointerUp = () => {
-    drag.current = null;
-  };
-
-  const half = Math.floor(n / 2);
-  const compact = useCompact();
-  const cardW = compact ? 210 : 280;
-  const cardH = compact ? 360 : 480;
-  const step = compact ? 130 : 210;
-  const depth = compact ? 160 : 220;
-
   return (
-    <section className="w-full overflow-hidden px-4 py-14 sm:px-6 sm:py-20">
-      <h2 className="mb-10 text-center text-2xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-3xl md:text-4xl">
-        MADE ENTIRELY WITH SZNVAULT
-      </h2>
-
-      <div
-        className="relative mx-auto h-[380px] max-w-5xl touch-pan-y select-none [perspective:1400px] sm:h-[500px]"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-      >
-        {items.map((item, i) => {
-          const offset = ((i - active + half + n) % n) - half;
-          const abs = Math.abs(offset);
-          return (
-            <button
-              key={item.src}
-              onClick={() => setActive(i)}
-              aria-label="Show clip"
-              className="absolute left-1/2 top-1/2 -translate-y-1/2 cursor-pointer transition-all duration-500 ease-out [transform-style:preserve-3d]"
-              style={{
-                width: cardW,
-                height: cardH,
-                transform: `translateX(calc(-50% + ${offset * step}px)) translateZ(${-abs * depth}px) rotateY(${offset === 0 ? 0 : offset < 0 ? 38 : -38}deg) scale(${1 - abs * 0.06})`,
-                opacity: abs > half ? 0 : 1 - abs * 0.25,
-                zIndex: n - abs,
-              }}
-            >
-              <div className="relative h-full overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  draggable={false}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </button>
-          );
-        })}
+    <section className="w-full overflow-hidden py-14 sm:py-24">
+      <div className="px-4 text-center sm:px-6">
+        <p className="text-[12px] font-bold tracking-[0.18em] text-nav-muted">MADE ENTIRELY WITH SZNVAULT</p>
+        <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-5xl">
+          The <span className="font-serif font-normal italic">archive.</span>
+        </h2>
+      </div>
+      <div className="mt-10 flex flex-col gap-4 [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+        <Row />
+        <Row reverse offset={3} />
+      </div>
+      <div className="mt-10 text-center">
+        <Link
+          to="/archive"
+          className="inline-flex items-center gap-2 rounded-full border border-nav-border px-6 py-3 text-[13px] font-bold tracking-[0.08em] text-nav-foreground transition-colors hover:bg-nav-pill"
+        >
+          VIEW THE FULL ARCHIVE <ArrowRight className="size-4" />
+        </Link>
       </div>
     </section>
   );

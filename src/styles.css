@@ -67,6 +67,7 @@
   --color-nav-border: var(--nav-border);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 }
 
 
@@ -105,12 +106,14 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
-  --nav: oklch(0.13 0 0);
-  --nav-foreground: oklch(1 0 0);
-  --nav-muted: oklch(0.62 0 0);
-  --nav-pill: oklch(0.19 0 0);
-  --nav-pill-active: oklch(0.28 0 0);
-  --nav-border: oklch(0.28 0 0);
+  --nav: oklch(0.13 0.004 60);
+  --nav-foreground: oklch(0.98 0.004 80);
+  --nav-muted: oklch(0.66 0.006 70);
+  --nav-pill: oklch(0.175 0.005 60);
+  --nav-pill-active: oklch(0.27 0.006 60);
+  --nav-border: oklch(0.25 0.005 60);
+  --glow-soft: radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--nav-foreground) 7%, transparent), transparent 70%);
+  --shadow-soft: 0 30px 80px -30px color-mix(in oklab, var(--nav-foreground) 14%, transparent);
   --brand: oklch(0.55 0.24 273);
   --brand-foreground: oklch(1 0 0);
 }
@@ -161,4 +164,31 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@utility glow-soft {
+  background-image: var(--glow-soft);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+@utility animate-marquee-reverse {
+  animation: marquee 60s linear infinite reverse;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@utility animate-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-marquee-reverse, .animate-rise { animation: none; }
 }
