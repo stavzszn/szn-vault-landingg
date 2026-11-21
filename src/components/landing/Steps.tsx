@@ -104,8 +104,8 @@ export function Steps() {
           ))}
         </TabsList>
         {STEPS.map((step) => (
-          <TabsContent key={step.id} value={step.id} className="mt-10 min-h-[300px] lg:min-h-[380px]">
-            <div className="grid gap-10 lg:grid-cols-[1.4fr_0.75fr] lg:items-start">
+          <TabsContent key={step.id} value={step.id} className="mt-10 min-h-[420px] lg:min-h-[560px]">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="lg:pt-8">
                 <h2 className="text-3xl font-extrabold uppercase leading-tight text-nav-foreground sm:text-5xl">{step.headline}</h2>
                 <p className="mt-5 max-w-md text-[15px] leading-relaxed text-nav-muted">{step.body}</p>
