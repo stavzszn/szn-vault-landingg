@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from "react";
 import { Section } from "./Primitives";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { galleryPhotos } from "@/lib/archive-photos";
 import wfMotionBefore from "@/assets/wf-motion-before.mp4";
 import wfMotionAfter from "@/assets/wf-motion-after.mp4";
@@ -11,237 +11,119 @@ import wfCarouselBefore from "@/assets/wf-carousel-before.png";
 import wfCarouselAfter from "@/assets/wf-carousel-after.png";
 
 type Media = { src: string; kind: "image" | "video"; alt: string };
-
 type Step = {
   id: string;
   label: string;
-  headline: ReactNode;
+  headline: string;
   body: string;
-  chips: { label: string; value: string }[];
-  media: { group: string; items: Media[]; cols: string }[];
-  caption: string;
+  media: { group: string; items: Media[] }[];
 };
-
 const img = (src: string, alt: string): Media => ({ src, kind: "image", alt });
 const vid = (src: string, alt: string): Media => ({ src, kind: "video", alt });
-
 const STEPS: Step[] = [
   {
-    id: "dataset",
-    label: "Dataset",
-    headline: "One photo becomes a full sheet.",
-    body: "You give it one photo of your character. The generator returns the angles, the body, the poses and the expressions of the same face: everything you need to train your model.",
-    chips: [
-      { label: "INPUT", value: "1 photo" },
-      { label: "OUTPUT", value: "Angles, poses, expressions" },
-      { label: "READY FOR", value: "Training" },
-    ],
-    media: [
-      {
-        group: "ANGLES · ONE SINGLE FACE",
-        cols: "grid-cols-4",
-        items: [0, 1, 2, 3].map((i) => img(galleryPhotos[i]!.src, galleryPhotos[i]!.alt)),
-      },
-      {
-        group: "BODY AND POSES",
-        cols: "grid-cols-4",
-        items: [4, 5].map((i) => img(galleryPhotos[i]!.src, galleryPhotos[i]!.alt)),
-      },
-    ],
-    caption: "From a real sheet: one photo in, everything else out.",
+    id: "image-gen", label: "IMAGE GEN",
+    headline: "Create your next image.",
+    body: "Generate new images of your character, from everyday portraits to entirely new scenes.",
+    media: [{ group: "GENERATED IMAGES", items: galleryPhotos.slice(0, 2).map((photo) => img(photo.src, photo.alt)) }],
   },
   {
-    id: "training",
-    label: "Training",
-    headline: "Train her once. Keep her forever.",
-    body: "Turn the sheet into a trained model that knows your character's face from every angle. After that, every new photo or video starts from her — no retraining, no drift.",
-    chips: [
-      { label: "INPUT", value: "The photo sheet" },
-      { label: "OUTPUT", value: "Your own model" },
-      { label: "RUNS ON", value: "Local or cloud GPU" },
-    ],
-    media: [
-      {
-        group: "ONE PHOTO IN",
-        cols: "grid-cols-2",
-        items: [img(wfCarouselBefore, "Single source photo of the AI character")],
-      },
-      {
-        group: "FULL SET OUT",
-        cols: "grid-cols-2",
-        items: [img(wfCarouselAfter, "Generated four-panel set of the same AI character")],
-      },
-    ],
-    caption: "One training run, unlimited generations.",
-  },
-  {
-    id: "images",
-    label: "Images",
+    id: "image-edit", label: "IMAGE EDIT",
     headline: "Edit any detail without a reshoot.",
-    body: "Change the outfit, the scene, the light or the pose on any photo while the face stays exactly the same. New content for every platform, on demand.",
-    chips: [
-      { label: "INPUT", value: "Any photo" },
-      { label: "OUTPUT", value: "New outfit, new scene" },
-      { label: "QUALITY", value: "Hyper-real" },
-    ],
+    body: "Change the outfit, the scene or the light while keeping the character at the centre of the shot.",
     media: [
-      {
-        group: "BEFORE",
-        cols: "grid-cols-2",
-        items: [img(wfEditBefore, "Original photo before the AI edit")],
-      },
-      {
-        group: "AFTER",
-        cols: "grid-cols-2",
-        items: [img(wfEditAfter, "Same photo after the AI outfit edit")],
-      },
+      { group: "BEFORE", items: [img(wfEditBefore, "Original photo before the AI outfit edit")] },
+      { group: "AFTER", items: [img(wfEditAfter, "Photo after the AI outfit edit")] },
     ],
-    caption: "Same girl, same pose — a completely new shot.",
   },
   {
-    id: "face-swap",
-    label: "Face swap",
-    headline: "Her face, onto any photo.",
-    body: "Take any photo you like and put your character's face on it in seconds. Test styles, trends and concepts before you ever generate a full set.",
-    chips: [
-      { label: "INPUT", value: "1 face photo" },
-      { label: "OUTPUT", value: "Unlimited photos" },
-      { label: "TIME", value: "Seconds" },
-    ],
+    id: "faceswap", label: "FACESWAP",
+    headline: "Her face, onto another photo.",
+    body: "Explore new looks and concepts with your character’s face in the frame.",
     media: [
-      {
-        group: "BEFORE",
-        cols: "grid-cols-2",
-        items: [img(wfFaceBefore, "Photo before the face swap")],
-      },
-      {
-        group: "AFTER",
-        cols: "grid-cols-2",
-        items: [img(wfFaceAfter, "Photo after the face swap")],
-      },
+      { group: "BEFORE", items: [img(wfFaceBefore, "Photo before the face swap")] },
+      { group: "AFTER", items: [img(wfFaceAfter, "Photo after the face swap")] },
     ],
-    caption: "The face stays consistent across every swap.",
   },
   {
-    id: "video",
-    label: "Video",
-    headline: "Bring her to life in motion.",
-    body: "Steer the movement frame by frame. Turn a still character into walking, talking, moving clips ready for reels and TikTok.",
-    chips: [
-      { label: "INPUT", value: "One clip" },
-      { label: "OUTPUT", value: "Full motion control" },
-      { label: "FORMAT", value: "MP4, ready to post" },
-    ],
+    id: "motion-control", label: "MOTION CONTROL",
+    headline: "Bring your character into motion.",
+    body: "Use a source clip to guide your character’s movement and create a new video.",
     media: [
-      {
-        group: "SOURCE CLIP",
-        cols: "grid-cols-2",
-        items: [vid(wfMotionBefore, "Source clip before motion control")],
-      },
-      {
-        group: "MOTION CONTROLLED",
-        cols: "grid-cols-2",
-        items: [vid(wfMotionAfter, "Clip after motion control is applied")],
-      },
+      { group: "SOURCE CLIP", items: [vid(wfMotionBefore, "Source motion control clip")] },
+      { group: "MOTION CONTROLLED", items: [vid(wfMotionAfter, "Generated motion control clip")] },
     ],
-    caption: "From a single clip to a full moving character.",
+  },
+  {
+    id: "image-to-video", label: "IMAGE TO VIDEO",
+    headline: "From a still image to a moving scene.",
+    body: "Give your images movement with an image-to-video workflow.",
+    media: [],
+  },
+  {
+    id: "carousel-gen", label: "CAROUSEL GEN",
+    headline: "One character. A complete carousel.",
+    body: "Turn a single character image into a set of photos for your next carousel.",
+    media: [
+      { group: "SOURCE IMAGE", items: [img(wfCarouselBefore, "Source portrait for carousel generation")] },
+      { group: "GENERATED CAROUSEL", items: [img(wfCarouselAfter, "Generated four-panel carousel")] },
+    ],
+  },
+  {
+    id: "dataset-gen", label: "DATASET GEN",
+    headline: "Build your character’s photo set.",
+    body: "Create the angles, poses and expressions for your character’s training dataset.",
+    media: [],
+  },
+  {
+    id: "upscalers", label: "UPSCALERS",
+    headline: "Give your images a sharper finish.",
+    body: "Increase image resolution and refine the details with upscaling workflows.",
+    media: [],
   },
 ];
 
 function MediaView({ media }: { media: Media }) {
-  const cls = "aspect-[3/4] w-full rounded-2xl border border-nav-border object-cover";
+  const cls = "block h-auto w-full rounded-2xl border border-nav-border";
   if (media.kind === "video") {
-    return (
-      <video
-        src={media.src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-label={media.alt}
-        ref={(el) => {
-          if (el) el.muted = true;
-        }}
-        className={cls}
-        draggable={false}
-      />
-    );
+    return <video src={media.src} autoPlay muted loop playsInline aria-label={media.alt} className={cls} draggable={false} />;
   }
   return <img src={media.src} alt={media.alt} loading="lazy" draggable={false} className={cls} />;
 }
 
 export function Steps() {
-  const [active, setActive] = useState(0);
-  const step = STEPS[active]!;
-
   return (
     <Section id="workflows">
-      <div className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
-        {/* step tabs */}
-        <div
-          role="tablist"
-          aria-label="Workflow steps"
-          className="flex flex-wrap items-center gap-1 rounded-full border border-nav-border bg-nav p-1.5 sm:inline-flex"
-        >
-          {STEPS.map((s, i) => (
-            <button
-              key={s.id}
-              role="tab"
-              aria-selected={i === active}
-              onClick={() => setActive(i)}
-              className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-bold tracking-[0.04em] transition-colors ${
-                i === active
-                  ? "bg-nav-foreground text-nav"
-                  : "text-nav-muted hover:text-nav-foreground"
-              }`}
-            >
-              <span className={i === active ? "text-nav/60" : "text-nav-muted/60"}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {s.label}
-            </button>
+      <Tabs defaultValue="image-gen" className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
+        <TabsList aria-label="Workflow steps" className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl border border-nav-border bg-nav p-1.5 sm:grid-cols-4">
+          {STEPS.map((step, i) => (
+            <TabsTrigger key={step.id} value={step.id} className="min-h-12 min-w-0 gap-2 whitespace-normal rounded-xl px-2 py-3 text-[11px] font-bold text-nav-muted shadow-none data-[state=active]:bg-nav-foreground data-[state=active]:text-nav sm:text-[13px]">
+              <span className="shrink-0 opacity-60">{i + 1}</span>
+              <span>{step.label}</span>
+            </TabsTrigger>
           ))}
-        </div>
-
-        {/* content */}
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:items-start">
-          <div>
-            <h2 className="text-3xl font-extrabold uppercase leading-[1.02] tracking-[-0.02em] text-nav-foreground sm:text-5xl">
-              {step.headline}
-            </h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-nav-muted">{step.body}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {step.chips.map((c) => (
-                <div
-                  key={c.label}
-                  className="rounded-2xl border border-nav-border bg-nav px-5 py-3.5"
-                >
-                  <p className="text-[10px] font-bold tracking-[0.16em] text-nav-muted">{c.label}</p>
-                  <p className="mt-1 text-[14px] font-bold text-nav-foreground">{c.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-wrap gap-x-6 gap-y-5">
-              {step.media.map((group) => (
-                <div key={group.group} className="min-w-0 flex-1 basis-[200px]">
-                  <p className="mb-2.5 text-[11px] font-bold tracking-[0.14em] text-nav-muted">
-                    {group.group}
-                  </p>
-                  <div className={`grid ${group.cols} gap-3`}>
-                    {group.items.map((m, i) => (
-                      <MediaView key={`${step.id}-${group.group}-${i}`} media={m} />
-                    ))}
+        </TabsList>
+        {STEPS.map((step) => (
+          <TabsContent key={step.id} value={step.id} className="mt-10 min-h-[600px] lg:min-h-[760px]">
+            <div className="grid gap-10 lg:grid-cols-[0.7fr_1.5fr] lg:items-start">
+              <div className="lg:pt-8">
+                <h2 className="text-3xl font-extrabold uppercase leading-tight text-nav-foreground sm:text-5xl">{step.headline}</h2>
+                <p className="mt-5 max-w-md text-[15px] leading-relaxed text-nav-muted">{step.body}</p>
+              </div>
+              <div className="grid min-w-0 grid-cols-1 items-start gap-5 sm:grid-cols-2">
+                {step.media.map((group) => (
+                  <div key={group.group} className={step.media.length === 1 ? "min-w-0 sm:col-span-2" : "min-w-0"}>
+                    <p className="mb-3 text-[11px] font-bold text-nav-muted">{group.group}</p>
+                    <div className={group.items.length > 1 ? "grid grid-cols-1 items-start gap-5 sm:grid-cols-2" : "grid grid-cols-1"}>
+                      {group.items.map((media, i) => <MediaView key={`${step.id}-${i}`} media={media} />)}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            <p className="mt-5 text-[13px] text-nav-muted">{step.caption}</p>
-          </div>
-        </div>
-      </div>
+          </TabsContent>
+        ))}
+      </Tabs>
     </Section>
   );
 }
