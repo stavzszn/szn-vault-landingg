@@ -24,7 +24,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`w-full px-4 py-14 sm:px-6 sm:py-20 ${className}`}>
+    <section id={id} className={`w-full px-6 py-14 sm:px-10 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-5xl">{children}</div>
     </section>
   );

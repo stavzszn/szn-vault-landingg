@@ -15,7 +15,7 @@ const letters = "SZNVAULT".split("");
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden px-4 pb-14 pt-10 sm:px-6 sm:pb-24 sm:pt-16">
+    <section className="relative w-full overflow-hidden px-6 pb-14 pt-10 sm:px-10 sm:pb-24 sm:pt-16">
       <div className="pointer-events-none absolute inset-0 glow-soft" />
       <div className="relative mx-auto max-w-6xl">
         <h1 aria-label="SZNVAULT" className="flex justify-center select-none">
@@ -86,7 +86,7 @@ export function Hero() {
 
 export function Statement() {
   return (
-    <section className="w-full px-4 py-10 sm:px-6 sm:py-16">
+    <section className="w-full px-6 py-10 sm:px-10 sm:py-16">
       <p className="mx-auto max-w-4xl text-center font-serif text-3xl italic leading-tight text-nav-foreground sm:text-5xl md:text-6xl">
         Every photo on this page came out of our workflows.
       </p>

@@ -40,7 +40,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-nav px-6 py-24">
+    <section className="w-full bg-nav px-6 py-24 sm:px-10">
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-12 text-center text-4xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-5xl">
           Frequently asked <span className="font-serif font-normal italic">questions.</span>

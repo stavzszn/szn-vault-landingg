@@ -27,7 +27,7 @@ function Row({ reverse = false, offset = 0 }: { reverse?: boolean; offset?: numb
 export function Gallery() {
   return (
     <section className="w-full overflow-hidden py-14 sm:py-24">
-      <div className="px-4 text-center sm:px-6">
+      <div className="px-6 text-center sm:px-10">
         <p className="text-[12px] font-bold tracking-[0.18em] text-nav-muted">MADE ENTIRELY WITH SZNVAULT</p>
         <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-5xl">
           The <span className="font-serif font-normal italic">archive.</span>
