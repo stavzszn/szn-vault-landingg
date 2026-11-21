@@ -1,15 +1,37 @@
-# New opening section: "EVERYTHING IN ONE VAULT"
+# New look for the SZNVAULT landing page
 
-The reference video hasn't been uploaded, so this plan uses a default design. If you attach the video, I'll update the plan to match its layout and motion.
+Modeled on seedraai.com. This replaces the "Neon street" idea, because the site you sent has a very different, editorial style.
 
-## What you'll see
-- A new first section above the current one (the photo with "Run your own AI influencers").
-- A large centered headline, **EVERYTHING IN ONE VAULT**, in the site's current bold font and dark style.
-- A short entrance animation: the words slide up and fade in one after another when the page loads, with a soft glow behind them in the site's accent color.
-- Every section below stays the same.
+## The new style
+- **Colors:** warm off-white background, near-black text, and a soft lilac-to-pink gradient on the main buttons. The current all-black look goes away.
+- **Fonts:** a clean modern sans for body text, plus an elegant italic serif for accent words, like "Your AI vault. *One payment.*"
+- **Feel:** lots of empty space, big type, rounded pill buttons with thin outlines, and photos as the main decoration.
+
+## New page layout (top to bottom)
+1. **Nav bar:** logo on the left, plain text links in the middle (Workflows, Tutorials, Pricing, FAQ, Discord), and Discord plus a gradient "Get access – €47" button on the right.
+2. **Hero:** giant "SZNVAULT" letters, each filled with one of your AI photos, like the SEEDRA letters on the reference. Below them:
+   - Headline "Everything in one vault. *One payment.*"
+   - Short text
+   - Two buttons: Get access (checkout) and See what's inside (vault.sznvault.com)
+3. **Statement line:** a large italic sentence, "Every photo on this page came out of our workflows."
+4. **The archive:** a wall of your photos in rows that slowly slide sideways. This replaces the 3D carousel.
+5. **Everything in one place:** your video in a large rounded frame, with the four topic cards (ComfyUI setup, image and video generation, face consistency, and many more) as a clean light grid.
+6. **Plug and use workflows:** the same four before/after cards with drag sliders, restyled light, plus the "And 2 more workflows" block.
+7. **Reviews:** your five review screenshots in a simple sliding row.
+8. **Pricing:** one big card with the €47 price (€149 crossed out), the list of what's included, the pricing photo, and the payment logos.
+9. **FAQ:** a minimal list with thin lines between questions.
+10. **Footer:** light and simple. Logo, the navigation and legal links (Terms, Privacy, Refund), and Join Discord.
+
+The Terms, Privacy and Refund pages also switch to the light style.
+
+## What stays the same
+All your text, photos, videos, prices, the checkout link, the Discord link, the vault link and the Whop tracking stay as they are. Removed sections stay removed.
 
 ## Technical details
-- New `src/components/landing/VaultIntro.tsx`, using the shared `Section` and the existing heading font classes and color tokens. No new colors.
-- CSS keyframes in `src/styles.css` for the word reveal, turned off when the visitor has reduced motion enabled.
-- Add `<VaultIntro />` in `src/routes/index.tsx` before `<Hero />`.
-- Hero keeps its `h1`. The new headline is an `h2`, so there's still only one main heading on the page.
+- Rewrite the color tokens in `src/styles.css` for the light palette, and add a `--gradient-cta` token. Add a sans and a serif font (General Sans or Geist, plus Instrument Serif), loaded in `__root.tsx` with `<link>` tags.
+- New `HeroLetters.tsx`: each letter uses `background-clip:text` with its own photo and a heavy display weight. On phones it becomes a smaller layout that wraps.
+- `Gallery.tsx` becomes a CSS marquee (rows going opposite ways, paused for visitors who turn off motion). Testimonials becomes a simple scroll-snap row.
+- `Workflows.tsx` keeps its native range inputs and only gets restyled.
+- Restyle Navbar, Footer, Faq, Pricing, Showcase and LegalDoc to use the new tokens only.
+- Update `index.tsx` for the new section order.
+- Check desktop and phone views with screenshots.
