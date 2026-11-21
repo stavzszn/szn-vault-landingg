@@ -113,7 +113,7 @@ export function Tutorials() {
       {(() => {
         const embed = getYouTubeEmbed(YOUTUBE_URL);
         return (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+          <div className="mx-auto mt-8 w-full max-w-3xl overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
             {embed ? (
               <div className="aspect-video w-full">
                 <iframe
