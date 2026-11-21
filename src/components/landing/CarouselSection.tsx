@@ -16,14 +16,14 @@ export function CarouselSection() {
     <Section id="carousel">
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-nav-foreground sm:text-6xl">
-          One photo.
+          One photo in.
           <br />
-          A whole <span className="font-serif italic font-normal">carousel.</span>
+          A full <span className="font-serif italic font-normal">carousel out.</span>
         </h2>
         <p className="max-w-md text-[15px] leading-relaxed text-nav-muted lg:justify-self-end">
-          Give it one photo and get a full post: same girl, same outfit, same
-          spot, new poses and angles. Every slide looks like a friend took it
-          on a phone.
+          Drop in a single picture and walk away with a ready-to-post carousel:
+          same character, same fit, same location — fresh poses and angles on
+          every slide, like someone snapped them on their phone.
         </p>
       </div>
       <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
