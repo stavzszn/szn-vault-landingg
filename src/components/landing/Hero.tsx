@@ -15,9 +15,9 @@ const letters = "SZNVAULT".split("");
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden px-6 pb-14 pt-10 sm:px-10 sm:pb-24 sm:pt-16">
+    <section className="relative w-full overflow-hidden pb-14 pt-10 sm:pb-24 sm:pt-16">
       <div className="pointer-events-none absolute inset-0 glow-soft" />
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8">
         <h1 aria-label="SZNVAULT" className="flex justify-center select-none">
           {letters.map((l, i) => {
             const photo = galleryPhotos[i % galleryPhotos.length]!;

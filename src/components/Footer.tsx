@@ -18,8 +18,8 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="w-full px-6 pb-6 pt-12 sm:px-10 sm:pb-8 sm:pt-16">
-      <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-[1.1fr_1.9fr]">
+    <footer className="w-full pb-6 pt-12 sm:pb-8 sm:pt-16">
+      <div className="mx-auto grid max-w-[1400px] gap-4 px-4 sm:px-8 md:grid-cols-[1.1fr_1.9fr]">
         {/* Left brand card */}
         <div className="relative overflow-hidden rounded-3xl border border-nav-border bg-gradient-to-br from-nav-pill-active via-nav-pill to-nav p-6 md:p-8">
           <div className="absolute -right-10 -top-10 size-40 rounded-full bg-brand/20 blur-3xl" />

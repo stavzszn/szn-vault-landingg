@@ -45,8 +45,8 @@ function Archive() {
   return (
     <div className="min-h-screen overflow-x-clip bg-nav">
       <Navbar />
-      <main className="px-6 py-14 sm:px-10 sm:py-20">
-        <div className="mx-auto max-w-6xl">
+      <main className="py-14 sm:py-20">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
           <h1 className="text-center text-5xl font-extrabold tracking-[-0.03em] text-nav-foreground sm:text-7xl">
             The <span className="font-serif font-normal italic">archive.</span>
           </h1>
