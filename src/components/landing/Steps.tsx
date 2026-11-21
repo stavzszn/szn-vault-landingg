@@ -1,10 +1,5 @@
 import { Section } from "./Primitives";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { galleryPhotos } from "@/lib/archive-photos";
-import wfMotionBefore from "@/assets/wf-motion-before.mp4";
-import wfMotionAfter from "@/assets/wf-motion-after.mp4";
-import wfFaceBefore from "@/assets/wf-face-before.png";
-import wfFaceAfter from "@/assets/wf-face-after.png";
 import wfEditBefore from "@/assets/wf-edit-before.png";
 import wfEditAfter from "@/assets/wf-edit-after.png";
 import wfCarouselBefore from "@/assets/wf-carousel-before.png";
@@ -19,14 +14,7 @@ type Step = {
   media: { group: string; items: Media[] }[];
 };
 const img = (src: string, alt: string): Media => ({ src, kind: "image", alt });
-const vid = (src: string, alt: string): Media => ({ src, kind: "video", alt });
 const STEPS: Step[] = [
-  {
-    id: "image-gen", label: "IMAGE GEN",
-    headline: "Create your next image.",
-    body: "Generate new images of your character, from everyday portraits to entirely new scenes.",
-    media: [{ group: "GENERATED IMAGES", items: galleryPhotos.slice(0, 2).map((photo) => img(photo.src, photo.alt)) }],
-  },
   {
     id: "image-edit", label: "IMAGE EDIT",
     headline: "Edit any detail without a reshoot.",
@@ -34,24 +22,6 @@ const STEPS: Step[] = [
     media: [
       { group: "BEFORE", items: [img(wfEditBefore, "Original photo before the AI outfit edit")] },
       { group: "AFTER", items: [img(wfEditAfter, "Photo after the AI outfit edit")] },
-    ],
-  },
-  {
-    id: "faceswap", label: "FACESWAP",
-    headline: "Her face, onto another photo.",
-    body: "Explore new looks and concepts with your character’s face in the frame.",
-    media: [
-      { group: "BEFORE", items: [img(wfFaceBefore, "Photo before the face swap")] },
-      { group: "AFTER", items: [img(wfFaceAfter, "Photo after the face swap")] },
-    ],
-  },
-  {
-    id: "motion-control", label: "MOTION CONTROL",
-    headline: "Bring your character into motion.",
-    body: "Use a source clip to guide your character’s movement and create a new video.",
-    media: [
-      { group: "SOURCE CLIP", items: [vid(wfMotionBefore, "Source motion control clip")] },
-      { group: "MOTION CONTROLLED", items: [vid(wfMotionAfter, "Generated motion control clip")] },
     ],
   },
   {
@@ -75,12 +45,6 @@ const STEPS: Step[] = [
     body: "Create the angles, poses and expressions for your character’s training dataset.",
     media: [],
   },
-  {
-    id: "upscalers", label: "UPSCALERS",
-    headline: "Give your images a sharper finish.",
-    body: "Increase image resolution and refine the details with upscaling workflows.",
-    media: [],
-  },
 ];
 
 function MediaView({ media }: { media: Media }) {
@@ -94,7 +58,7 @@ function MediaView({ media }: { media: Media }) {
 export function Steps() {
   return (
     <Section id="workflows">
-      <Tabs defaultValue="image-gen" className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
+      <Tabs defaultValue="image-edit" className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
         <TabsList aria-label="Workflow steps" className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl border border-nav-border bg-nav p-1.5 sm:grid-cols-4">
           {STEPS.map((step, i) => (
             <TabsTrigger key={step.id} value={step.id} className="min-h-12 min-w-0 gap-2 whitespace-normal rounded-xl px-2 py-3 text-[11px] font-bold text-nav-muted shadow-none data-[state=active]:bg-nav-foreground data-[state=active]:text-nav sm:text-[13px]">
