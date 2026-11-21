@@ -55,9 +55,9 @@ function Index() {
       <main>
         <Hero />
         <Gallery />
-        <Tutorials />
         <Steps />
         <CarouselSection />
+        <Tutorials />
         <Pricing />
         <div id="faq">
           <Faq />
