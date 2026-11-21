@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -40,26 +41,27 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-nav py-24">
+    <section className="w-full bg-nav py-12 sm:py-14">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
-        <h2 className="mb-12 text-center text-4xl font-extrabold tracking-[-0.02em] text-nav-foreground md:text-5xl">
+        <h2 className="mb-10 text-center text-4xl font-extrabold text-nav-foreground md:text-5xl">
           Frequently asked <span className="font-serif font-normal italic">questions.</span>
         </h2>
 
-        <div className="flex flex-col border-t border-nav-border">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-3">
           {faqs.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
                 key={item.q}
-                className="overflow-hidden border-b border-nav-border"
+                className="overflow-hidden rounded-2xl bg-nav-pill"
               >
-                <button
+                <Button
+                  variant="ghost"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 px-1 py-6 text-left"
+                  className="grid h-auto min-h-16 w-full grid-cols-[minmax(0,1fr)_auto] gap-6 whitespace-normal rounded-none px-6 py-5 text-left hover:bg-nav-pill-active"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-[15px] font-semibold text-nav-foreground">
+                  <span className="min-w-0 text-[15px] font-semibold text-nav-foreground">
                     {item.q}
                   </span>
                   <Plus
@@ -67,14 +69,14 @@ export function Faq() {
                       isOpen ? "rotate-45" : ""
                     }`}
                   />
-                </button>
+                </Button>
                 <div
                   className={`grid transition-all duration-300 ease-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-1 pb-6 text-[14px] leading-relaxed text-nav-muted">
+                    <p className="px-6 pb-6 text-[14px] leading-relaxed text-nav-muted">
                       {item.a}
                     </p>
                   </div>

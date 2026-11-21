@@ -107,13 +107,13 @@ export function Testimonials() {
 
 export function Tutorials() {
   return (
-    <Section id="tutorials">
+    <Section id="tutorials" className="py-12! sm:py-14!">
+      <div className="mx-auto w-full max-w-5xl">
       <Heading>Everything in one place</Heading>
-      <Sub>{"\n"}</Sub>
       {(() => {
         const embed = getYouTubeEmbed(YOUTUBE_URL);
         return (
-          <div className="mx-auto mt-8 w-full max-w-3xl overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
+          <div className="mx-auto mt-8 w-full overflow-hidden rounded-2xl border border-nav-border bg-nav-pill">
             {embed ? (
               <div className="aspect-video w-full">
                 <iframe
@@ -141,6 +141,7 @@ export function Tutorials() {
         );
       })()}
       <BentoGrid />
+      </div>
     </Section>
   );
 }
@@ -194,7 +195,7 @@ function BentoGrid() {
   return (
     <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-12">
       {/* Row 1 — small left */}
-      <BentoCard className="md:col-span-4">
+      <BentoCard className="md:col-span-4 md:min-h-[274px]">
         <div className="flex flex-1 items-center justify-center py-4">
           <span
             className="inline-flex -rotate-3 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-nav-foreground transition-transform duration-300 group-hover:rotate-0"
@@ -215,7 +216,7 @@ function BentoGrid() {
       </BentoCard>
 
       {/* Row 1 — wide right, glowing orb */}
-      <BentoCard className="md:col-span-8">
+      <BentoCard className="md:col-span-8 md:min-h-[274px]">
         <div
           className="pointer-events-none absolute -right-24 -top-32 size-[420px] rounded-full"
           style={{
