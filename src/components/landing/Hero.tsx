@@ -1,4 +1,3 @@
-import heroImage from "@/assets/hero-image.png";
 import { CHECKOUT_URL } from "./Pricing";
 
 export function Hero() {
@@ -43,25 +42,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="animate-rise mt-14 [animation-delay:550ms] sm:mt-20">
-          <img
-            src={heroImage}
-            alt="Three AI-generated influencers beside a car at a night gas station under a glowing SZN VAULT sign"
-            className="w-full rounded-3xl border border-nav-border shadow-soft"
-            draggable={false}
-          />
-        </div>
       </div>
-    </section>
-  );
-}
-
-export function Statement() {
-  return (
-    <section className="w-full px-6 py-10 sm:px-10 sm:py-16">
-      <p className="mx-auto max-w-4xl text-center font-serif text-3xl italic leading-tight text-nav-foreground sm:text-5xl md:text-6xl">
-        Every photo on this page came out of our workflows.
-      </p>
     </section>
   );
 }
