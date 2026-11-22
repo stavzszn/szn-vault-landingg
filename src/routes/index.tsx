@@ -11,6 +11,7 @@ import { CarouselSection } from "@/components/landing/CarouselSection";
 import { CharacterSection } from "@/components/landing/CharacterSection";
 import { UpscalingSection } from "@/components/landing/UpscalingSection";
 import { HardwareSection } from "@/components/landing/HardwareSection";
+import { VAULT_PRICING } from "@/lib/pricing";
 
 const description =
   "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers with step-by-step tutorials, 6+ ComfyUI workflows and lifetime updates.";
@@ -39,8 +40,8 @@ export const Route = createFileRoute("/")({
           brand: { "@type": "Brand", name: "SZNVAULT" },
           offers: {
             "@type": "Offer",
-            price: "47",
-            priceCurrency: "EUR",
+            price: String(VAULT_PRICING.price),
+            priceCurrency: VAULT_PRICING.currency,
             availability: "https://schema.org/InStock",
             url: "https://whop.com/checkout/plan_Bo8NofFDjnPco",
           },

@@ -9,3 +9,4 @@
 - [ ] Replace illustrative previews with the user's original and upscaled examples (waiting for uploads).
 - [x] Add and verify a hardware guide after the image-edit workflow section.
 - [ ] Confirm workflow-specific hardware requirements (waiting for the user's requirements).
+- [x] Replace the footer Testimonials link with Archive and update all website pricing to €97 discounted from €149.

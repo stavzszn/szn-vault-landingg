@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { Section, Heading } from "./Primitives";
 import showcaseImg from "@/assets/pricing-showcase.png";
+import { VAULT_PRICING } from "@/lib/pricing";
 
 export const CHECKOUT_URL = "https://whop.com/checkout/plan_Bo8NofFDjnPco";
 
@@ -63,7 +64,7 @@ export function Pricing() {
               rel="noopener noreferrer"
               className="rounded-full bg-nav-foreground px-6 py-3.5 text-center text-[13px] font-bold tracking-[0.08em] text-nav transition-opacity hover:opacity-90"
             >
-              GET ACCESS — €47 <span className="line-through opacity-50">€97</span>
+              GET ACCESS — €{VAULT_PRICING.price} <span className="line-through opacity-50">€{VAULT_PRICING.originalPrice}</span>
             </a>
             <p className="text-center text-[12px] leading-relaxed text-nav-muted">
               One-time payment. Instant access.

@@ -6,7 +6,7 @@ const logoUrl = "/logo.png";
 const navigation = [
   { label: "Tutorials", href: "#tutorials" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Archive", href: "/archive" },
   { label: "FAQ", href: "#faq" },
 ];
 
