@@ -7,3 +7,5 @@
 - [x] Verify video playback, comparison controls, and phone layout.
 - [x] Add and verify the upscaling section with Photo/Video tabs after the carousel section.
 - [ ] Replace illustrative previews with the user's original and upscaled examples (waiting for uploads).
+- [x] Add and verify a hardware guide after the image-edit workflow section.
+- [ ] Confirm workflow-specific hardware requirements (waiting for the user's requirements).
