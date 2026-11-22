@@ -39,19 +39,19 @@ export function CharacterSection() {
 
   return (
     <Section id="character-replacement">
-      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="mx-auto w-full max-w-lg lg:mx-0">
+      <div className="mx-auto grid max-w-[960px] items-center gap-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-10">
+        <div className="mx-auto w-full max-w-lg text-center lg:mx-0 lg:text-left">
           <h2 className="text-5xl font-extrabold leading-[1.05] text-nav-foreground sm:text-6xl lg:text-7xl">
             A new face.<br />The same motion.
           </h2>
-          <p className="mt-7 max-w-sm text-[15px] leading-relaxed text-nav-muted">
+          <p className="mx-auto mt-7 max-w-sm text-[15px] leading-relaxed text-nav-muted lg:mx-0">
             Bring your AI character into an existing video, with the original
             movement, camera and setting intact.
           </p>
           <p className="mt-6 text-[12px] text-nav-muted">Motion control workflow included in the vault.</p>
         </div>
 
-        <div className="mx-auto flex w-full max-w-[440px] items-start gap-3 lg:mr-0">
+        <div className="mx-auto flex w-full max-w-[440px] items-start gap-3">
           <div className="min-w-0 flex-1">
             <div className="relative aspect-[9/16] overflow-hidden rounded-lg border border-nav-muted bg-nav-pill">
               <video ref={result} src={resultClip} autoPlay loop muted playsInline preload="metadata" aria-label="AI character result" className="absolute inset-0 h-full w-full object-contain" />
