@@ -20,7 +20,7 @@ const bonuses = [
 export function Pricing() {
   return (
     <Section id="pricing">
-      <Heading>Everything you could <span className="font-serif font-normal italic">ever need.</span></Heading>
+      <Heading>Everything you could <span>ever need.</span></Heading>
       <div className="relative mt-10 grid gap-8 overflow-hidden rounded-[2rem] border border-nav-border bg-nav-pill/60 p-5 shadow-soft glow-soft sm:p-8 md:grid-cols-2">
         <div className="self-center">
           <img

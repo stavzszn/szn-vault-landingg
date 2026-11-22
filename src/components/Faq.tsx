@@ -44,7 +44,7 @@ export function Faq() {
     <section className="w-full bg-nav py-12 sm:py-14">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
         <h2 className="mb-10 text-center text-4xl font-extrabold text-nav-foreground md:text-5xl">
-          Frequently asked <span className="font-serif font-normal italic">questions.</span>
+          Frequently asked <span>questions.</span>
         </h2>
 
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-3">

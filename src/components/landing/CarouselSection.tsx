@@ -18,7 +18,7 @@ export function CarouselSection() {
         <h2 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-nav-foreground sm:text-6xl">
           One photo in.
           <br />
-          A full <span className="font-serif italic font-normal">carousel out.</span>
+          A full <span>carousel out.</span>
         </h2>
         <p className="max-w-md text-[15px] leading-relaxed text-nav-muted lg:justify-self-end">
           Drop in a single picture and walk away with a ready-to-post carousel:

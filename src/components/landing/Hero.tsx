@@ -21,7 +21,7 @@ export function Hero() {
           <h1 className="animate-rise mt-7 max-w-5xl text-5xl font-extrabold leading-[1.02] tracking-[-0.03em] text-nav-foreground [animation-delay:120ms] sm:text-7xl lg:text-8xl">
             Your AI influencer,
             <br />
-            <span className="font-serif font-normal italic">built in a weekend.</span>
+            <span>built in a weekend.</span>
           </h1>
           <p className="animate-rise mt-7 max-w-xl text-[15px] leading-relaxed text-nav-muted [animation-delay:240ms] sm:text-base">
             The full playbook for creating, training and monetizing

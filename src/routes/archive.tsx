@@ -48,7 +48,7 @@ function Archive() {
       <main className="py-14 sm:py-20">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
           <h1 className="text-center text-5xl font-extrabold tracking-[-0.03em] text-nav-foreground sm:text-7xl">
-            The <span className="font-serif font-normal italic">archive.</span>
+            The <span>archive.</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-center text-[15px] text-nav-muted">
             Every photo here came straight out of SZNVAULT workflows.

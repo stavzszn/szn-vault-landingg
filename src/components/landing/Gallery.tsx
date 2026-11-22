@@ -30,7 +30,7 @@ export function Gallery() {
       <div className="px-6 text-center sm:px-10">
         <p className="text-[12px] font-bold tracking-[0.18em] text-nav-muted">MADE ENTIRELY WITH SZNVAULT</p>
         <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.02em] text-nav-foreground sm:text-5xl">
-          The <span className="font-serif font-normal italic">archive.</span>
+          The <span>archive.</span>
         </h2>
       </div>
       <div className="mt-10 flex flex-col gap-4 [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
