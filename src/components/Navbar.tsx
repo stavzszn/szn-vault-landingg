@@ -1,4 +1,5 @@
 import { useNavigate, useRouterState } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
 const logoUrl = "/logo.png";
 
@@ -20,7 +21,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
+    <header className="site-navbar sticky top-0 z-50 w-full border-b border-nav-border bg-nav/80 backdrop-blur-md">
       <div className="relative mx-auto flex h-[56px] max-w-[1400px] items-center justify-between px-4 sm:px-8">
         <a href="/" className="flex items-center gap-2.5">
           <img src={logoUrl} alt="SZNVAULT logo" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
@@ -32,17 +33,18 @@ export function Navbar() {
         <nav className="absolute left-1/2 -translate-x-1/2">
           <div className="flex items-center gap-0.5 rounded-full bg-nav-pill p-1 sm:gap-1">
             {tabs.map((tab) => (
-              <button
+              <Button
+                variant="ghost"
                 key={tab}
                 onClick={() => handleTab(tab)}
-                className={`rounded-full px-2 py-1.5 text-[10px] font-bold tracking-[0.08em] transition-colors sm:px-6 sm:py-2 sm:text-[13px] ${
+                className={`h-auto rounded-full px-2 py-1.5 text-[10px] font-bold tracking-[0.08em] transition-colors hover:bg-transparent sm:px-6 sm:py-2 sm:text-[13px] ${
                   active === tab
                     ? "bg-nav-pill-active text-nav-foreground"
                     : "text-nav-muted hover:text-nav-foreground"
                 }`}
               >
                 {tab}
-              </button>
+              </Button>
             ))}
           </div>
         </nav>

@@ -216,3 +216,71 @@
   outline: 2px solid var(--nav-foreground);
   outline-offset: -4px;
 }
+
+/* Compact layouts only: desktop sizing and spacing remain untouched. */
+@media (max-width: 1023px) {
+  main > section { padding-block: 48px; }
+  main > section:first-child { padding-top: 48px; padding-bottom: 56px; }
+  main h1 { font-size: 60px; line-height: 1.08; }
+  main h2 { overflow-wrap: break-word; }
+  #character-replacement > div > div,
+  #upscaling > div > div {
+    max-width: 760px;
+  }
+  #workflows [role="tabpanel"] { min-height: 0; }
+  #workflows [role="tabpanel"] > div > div:first-child { text-align: center; }
+  #workflows [role="tabpanel"] > div > div:first-child p { margin-inline: auto; }
+  #workflows [role="tabpanel"] h2 { font-size: 36px; }
+  #carousel h2, #carousel h2 + p { text-align: center; margin-inline: auto; }
+  #hardware input[type="range"] { min-height: 44px; }
+  footer > div { grid-template-columns: 1fr; }
+  footer > div > div:last-child > div.grid { max-width: 75%; }
+  main section, main section [role="tabpanel"] { scroll-margin-top: 72px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #character-replacement > div > div,
+  #upscaling > div > div {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    gap: 28px;
+  }
+  #character-replacement h2, #upscaling h2 { font-size: 44px; }
+  #character-replacement > div > div > div:first-child,
+  #upscaling > div > div > div:first-child { text-align: left; }
+  #character-replacement p, #upscaling p { margin-inline: 0; }
+}
+
+@media (max-width: 767px) {
+  .site-navbar > div {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding-inline: 12px;
+    height: 64px;
+  }
+  .site-navbar > div > a { min-width: 0; }
+  .site-navbar > div > a:first-child span { display: none; }
+  .site-navbar nav { position: static; transform: none; translate: 0 0 !important; min-width: 0; justify-self: center; }
+  .site-navbar nav > div { gap: 0; padding: 2px; }
+  .site-navbar nav button { min-height: 44px; padding-inline: 7px; font-size: 10px; letter-spacing: 0; }
+  .site-navbar > div > a:last-child { padding: 12px 8px; font-size: 10px; letter-spacing: 0; white-space: nowrap; }
+  main h1 { font-size: 40px; }
+  main > section:first-child > div:last-child > div:last-child { margin-top: 48px; }
+  main > section:first-child img { width: 112px; }
+  main > section:first-child img:nth-child(n+4) { display: none; }
+  #character-replacement h2, #upscaling h2 { font-size: 40px; }
+  #character-replacement > div > div, #upscaling > div > div { gap: 24px; }
+  #character-replacement > div > div > div:last-child { max-width: 360px; }
+  #upscaling > div > div > div:last-child { max-width: 320px; }
+  #carousel h2, #hardware h2, #workflows [role="tabpanel"] h2 { font-size: 32px; }
+  #workflows > div > [role="tablist"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #workflows [role="tabpanel"] { margin-top: 24px; }
+  #workflows [role="tabpanel"] > div { gap: 24px; }
+  #workflows [role="tabpanel"] > div > div:last-child { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #workflows [role="tabpanel"] > div > div:last-child p { font-size: 10px; }
+  #hardware [role="tablist"] { gap: 2px; }
+  #hardware [role="tab"] { font-size: 11px; line-height: 1.4; }
+  #hardware [role="tab"] svg { display: none; }
+  footer > div > div:last-child > div.grid { max-width: 100%; gap: 20px; }
+  footer > div > div:last-child > div:first-child:not(.grid) { display: none; }
+}
