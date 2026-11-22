@@ -196,3 +196,23 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee, .animate-marquee-reverse, .animate-rise { animation: none; }
 }
+
+.character-comparison-range {
+  appearance: none;
+  touch-action: pan-y;
+}
+.character-comparison-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 44px;
+  height: 44px;
+}
+.character-comparison-range::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border: 0;
+}
+.character-comparison-range:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--nav-foreground);
+  outline-offset: -4px;
+}
