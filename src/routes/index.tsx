@@ -9,6 +9,7 @@ import { Pricing } from "@/components/landing/Pricing";
 import { Steps } from "@/components/landing/Steps";
 import { CarouselSection } from "@/components/landing/CarouselSection";
 import { CharacterSection } from "@/components/landing/CharacterSection";
+import { UpscalingSection } from "@/components/landing/UpscalingSection";
 
 const description =
   "SZNVAULT teaches you to build and monetize hyper-realistic AI influencers with step-by-step tutorials, 6+ ComfyUI workflows and lifetime updates.";
@@ -59,6 +60,7 @@ function Index() {
         <Tutorials />
         <CharacterSection />
         <CarouselSection />
+        <UpscalingSection />
         <Steps />
         <Pricing />
         <div id="faq">

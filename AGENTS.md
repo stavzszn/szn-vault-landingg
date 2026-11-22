@@ -12,3 +12,4 @@
 - Keep workflow before/after comparisons in the landing Workflows component using native range inputs so dragging, touch, and keyboard control share one value.
 - Use the shared Tabs controls for the landing workflow showcase and render media at its natural aspect ratio; this keeps keyboard navigation accessible and examples uncropped.
 - Keep the character-replacement showcase in its own landing component using existing paired clips and one native range value; this keeps the comparison synchronized and accessible.
+- Keep upscaling media in a separate landing component with shared Tabs and a native comparison range; mark illustrative previews until genuine paired examples are supplied to avoid presenting simulated results as real.

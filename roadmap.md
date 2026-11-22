@@ -5,3 +5,5 @@
 - [x] Verify both sections on desktop and mobile.
 - [x] Add a character-replacement video comparison after Everything in one place.
 - [x] Verify video playback, comparison controls, and phone layout.
+- [x] Add and verify the upscaling section with Photo/Video tabs after the carousel section.
+- [ ] Replace illustrative previews with the user's original and upscaled examples (waiting for uploads).
