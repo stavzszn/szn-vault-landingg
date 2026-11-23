@@ -3,10 +3,18 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { archivePhotos } from "@/lib/archive-photos";
+import { galleryPhotos } from "@/lib/archive-photos";
+import { ArchiveWorkflows } from "@/components/ArchiveWorkflows";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
-const title = "The Archive — AI Photos Made with SZNVAULT";
-const description = "Browse hyper-realistic AI influencer photos created entirely with SZNVAULT ComfyUI workflows.";
+const collections = [
+  { id: "content", label: "Content" },
+  { id: "workflows", label: "Workflows" },
+];
+
+const title = "The Archive — AI Content & ComfyUI Workflows | SZNVAULT";
+const description = "Explore AI character photos and eight ComfyUI workflow showcases in the SZNVAULT archive.";
 
 export const Route = createFileRoute("/archive")({
   staticData: { sitemap: true },
@@ -26,8 +34,10 @@ export const Route = createFileRoute("/archive")({
 });
 
 function Archive() {
+  const [collection, setCollection] = useState("content");
   const [open, setOpen] = useState<number | null>(null);
-  const n = archivePhotos.length;
+  const photos = galleryPhotos;
+  const n = photos.length;
 
   useEffect(() => {
     if (open === null) return;
@@ -40,7 +50,7 @@ function Archive() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, n]);
 
-  const current = open === null ? null : archivePhotos[open];
+  const current = open === null ? null : photos[open];
 
   return (
     <div className="min-h-screen overflow-x-clip bg-nav">
@@ -53,18 +63,36 @@ function Archive() {
           <p className="mx-auto mt-4 max-w-xl text-center text-[15px] text-nav-muted">
             Every photo here came straight out of SZNVAULT workflows.
           </p>
-          <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-4">
-            {archivePhotos.map((p, i) => (
-              <button
+          <Tabs value={collection} onValueChange={(value) => { setOpen(null); setCollection(value); }} className="mt-7">
+            <div className="flex justify-center">
+              <TabsList aria-label="Archive collection" className="relative grid h-12 w-64 grid-cols-2 rounded-full border border-nav-border bg-nav-pill p-1 text-nav-muted">
+                <span aria-hidden="true" className={`pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-nav-foreground transition-transform duration-200 motion-reduce:transition-none ${collection === "workflows" ? "translate-x-full" : "translate-x-0"}`} />
+                {collections.map((item) => (
+                  <TabsTrigger key={item.id} value={item.id} className="relative z-10 h-full rounded-full font-bold text-nav-muted data-[state=active]:bg-transparent data-[state=active]:text-nav data-[state=active]:shadow-none focus-visible:ring-nav-foreground">
+                    {item.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+              <TabsContent value="content" className="mt-10">
+                <div className="columns-2 gap-4 sm:columns-3 lg:columns-4">
+            {photos.map((p, i) => (
+              <Button
+                variant="ghost"
                 key={p.src}
                 onClick={() => setOpen(i)}
-                className="mb-4 block w-full overflow-hidden rounded-2xl border border-nav-border"
+                className="mb-4 block h-auto w-full overflow-hidden rounded-2xl border border-nav-border p-0 hover:bg-transparent"
                 aria-label={`Open photo ${i + 1}`}
               >
                 <img src={p.src} alt={p.alt} loading="lazy" className="block h-auto w-full transition-transform duration-500 hover:scale-[1.03]" />
-              </button>
+              </Button>
             ))}
-          </div>
+                </div>
+              </TabsContent>
+              <TabsContent value="workflows" className="mt-10">
+                <ArchiveWorkflows />
+              </TabsContent>
+          </Tabs>
         </div>
       </main>
       <Footer />
@@ -72,9 +100,9 @@ function Archive() {
       {current && open !== null && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-[60] flex items-center justify-center bg-nav/95 p-4 backdrop-blur" onClick={() => setOpen(null)}>
           <img src={current.src} alt={current.alt} className="max-h-[88vh] max-w-full rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
-          <button aria-label="Close" onClick={() => setOpen(null)} className="absolute right-4 top-4 rounded-full bg-nav-pill p-2 text-nav-foreground"><X className="size-5" /></button>
-          <button aria-label="Previous photo" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + n) % n); }} className="absolute left-3 rounded-full bg-nav-pill p-2 text-nav-foreground"><ChevronLeft className="size-6" /></button>
-          <button aria-label="Next photo" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % n); }} className="absolute right-3 rounded-full bg-nav-pill p-2 text-nav-foreground"><ChevronRight className="size-6" /></button>
+          <Button variant="ghost" size="icon" aria-label="Close" onClick={() => setOpen(null)} className="absolute right-4 top-4 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><X className="size-5" /></Button>
+          <Button variant="ghost" size="icon" aria-label="Previous photo" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + n) % n); }} className="absolute left-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronLeft className="size-6" /></Button>
+          <Button variant="ghost" size="icon" aria-label="Next photo" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % n); }} className="absolute right-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronRight className="size-6" /></Button>
         </div>
       )}
     </div>

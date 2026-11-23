@@ -16,3 +16,4 @@
 - Keep the hardware guide advisory until workflow requirements are verified; never infer guaranteed compatibility from memory capacity alone.
 - Use the shared pricing values in src/lib/pricing.ts for displayed prices and structured offers so purchase amounts cannot drift between them.
 - Scope hero phone adjustments to its named CSS hooks below the mobile breakpoint so the desktop composition stays unchanged.
+- Keep the archive photo collection separate from the workflow catalog using shared Tabs; show workflow cards with explicit example labels until real workflow screenshots are supplied.
