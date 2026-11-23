@@ -14,3 +14,4 @@
 - [x] Correct the phone hero spacing and balance its photo fan without changing desktop.
 - [x] Add and verify separate Content / Workflows archives with a sliding switch.
 - [x] Match the Workflows archive to the new reference with eight workflow cards, using existing examples where available.
+- [ ] Replace the eight Workflows archive card previews with the user's own screenshots (waiting for uploads).
