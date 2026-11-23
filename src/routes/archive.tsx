@@ -75,18 +75,25 @@ function Archive() {
               </TabsList>
             </div>
               <TabsContent value="content" className="mt-10">
-                <div className="columns-2 gap-4 sm:columns-3 lg:columns-4">
-            {photos.map((p, i) => (
-              <Button
-                variant="ghost"
-                key={p.src}
-                onClick={() => setOpen(i)}
-                className="mb-4 block h-auto w-full overflow-hidden rounded-2xl border border-nav-border p-0 hover:bg-transparent"
-                aria-label={`Open photo ${i + 1}`}
-              >
-                <img src={p.src} alt={p.alt} loading="lazy" className="block h-auto w-full transition-transform duration-500 hover:scale-[1.03]" />
-              </Button>
-            ))}
+                <div className="grid grid-cols-2 items-start gap-4 md:grid-cols-4">
+                  {[0, 1, 2, 3].map((col) => (
+                    <div key={col} className={`flex-col gap-4 ${col > 1 ? "hidden md:flex" : "flex"}`}>
+                      {photos.filter((_, i) => i % 4 === col).map((p) => {
+                        const i = photos.indexOf(p);
+                        return (
+                          <Button
+                            variant="ghost"
+                            key={p.src}
+                            onClick={() => setOpen(i)}
+                            className="block h-auto w-full overflow-hidden rounded-2xl border border-nav-border p-0 hover:bg-transparent"
+                            aria-label={`Open photo ${i + 1}`}
+                          >
+                            <img src={p.src} alt={p.alt} loading="lazy" className="block h-auto w-full transition-transform duration-500 hover:scale-[1.03]" />
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  ))}
                 </div>
               </TabsContent>
               <TabsContent value="workflows" className="mt-10">
