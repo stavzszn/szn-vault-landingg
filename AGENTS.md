@@ -12,8 +12,6 @@
 - Keep workflow before/after comparisons in the landing Workflows component using native range inputs so dragging, touch, and keyboard control share one value.
 - Use the shared Tabs controls for the landing workflow showcase and render media at its natural aspect ratio; this keeps keyboard navigation accessible and examples uncropped.
 - Keep the character-replacement showcase in its own landing component using existing paired clips and one native range value; this keeps the comparison synchronized and accessible.
-- Keep upscaling media in a separate landing component with shared Tabs and a native comparison range; mark illustrative previews until genuine paired examples are supplied to avoid presenting simulated results as real.
-- Keep the hardware guide advisory until workflow requirements are verified; never infer guaranteed compatibility from memory capacity alone.
 - Use the shared pricing values in src/lib/pricing.ts for displayed prices and structured offers so purchase amounts cannot drift between them.
 - Scope hero phone adjustments to its named CSS hooks below the mobile breakpoint so the desktop composition stays unchanged.
 - Keep the archive photo collection separate from the workflow catalog using shared Tabs; show workflow cards with explicit example labels until real workflow screenshots are supplied.

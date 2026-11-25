@@ -9,8 +9,6 @@ import { Pricing } from "@/components/landing/Pricing";
 import { Steps } from "@/components/landing/Steps";
 import { CarouselSection } from "@/components/landing/CarouselSection";
 import { CharacterSection } from "@/components/landing/CharacterSection";
-import { UpscalingSection } from "@/components/landing/UpscalingSection";
-import { HardwareSection } from "@/components/landing/HardwareSection";
 import { VAULT_PRICING } from "@/lib/pricing";
 
 const description =
@@ -62,9 +60,7 @@ function Index() {
         <Tutorials />
         <CharacterSection />
         <CarouselSection />
-        <UpscalingSection />
         <Steps />
-        <HardwareSection />
         <Pricing />
         <div id="faq">
           <Faq />
