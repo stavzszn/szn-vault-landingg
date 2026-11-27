@@ -12,3 +12,5 @@
 - [x] Match the Workflows archive to the new reference with eight workflow cards, using existing examples where available.
 - [ ] Replace the eight Workflows archive card previews with the user's own screenshots (waiting for uploads).
 - [x] Replace all Content archive photos with the ten uploaded images, keeping all ten accessible on phone and desktop.
+- [x] Add the nine extra uploaded photos to the Content archive, keeping the four-column desktop and two-column phone layout.
+
