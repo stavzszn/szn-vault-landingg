@@ -15,3 +15,4 @@
 - Use the shared pricing values in src/lib/pricing.ts for displayed prices and structured offers so purchase amounts cannot drift between them.
 - Scope hero phone adjustments to its named CSS hooks below the mobile breakpoint so the desktop composition stays unchanged.
 - Keep the archive photo collection separate from the workflow catalog using shared Tabs; show workflow cards with explicit example labels until real workflow screenshots are supplied.
+- Keep Content archive photos in their own collection, independent of landing gallery photos, so archive replacements do not change other sections.

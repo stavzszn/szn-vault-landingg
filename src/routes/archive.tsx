@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { galleryPhotos } from "@/lib/archive-photos";
+import { contentPhotos } from "@/lib/content-photos";
 import { ArchiveWorkflows } from "@/components/ArchiveWorkflows";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/archive")({
 function Archive() {
   const [collection, setCollection] = useState("content");
   const [open, setOpen] = useState<number | null>(null);
-  const photos = galleryPhotos;
+  const photos = contentPhotos;
   const n = photos.length;
 
   useEffect(() => {
@@ -75,10 +75,11 @@ function Archive() {
               </TabsList>
             </div>
               <TabsContent value="content" className="mt-10">
-                <div className="grid grid-cols-2 items-start gap-4 md:grid-cols-4">
-                  {[0, 1, 2, 3].map((col) => (
-                    <div key={col} className={`flex-col gap-4 ${col > 1 ? "hidden md:flex" : "flex"}`}>
-                      {photos.filter((_, i) => i % 4 === col).map((p) => {
+                {[2, 4].map((columns) => (
+                <div key={columns} className={columns === 2 ? "grid grid-cols-2 items-start gap-4 md:hidden" : "hidden grid-cols-4 items-start gap-4 md:grid"}>
+                  {Array.from({ length: columns }, (_, col) => (
+                    <div key={col} className="flex flex-col gap-4">
+                      {photos.filter((_, i) => i % columns === col).map((p) => {
                         const i = photos.indexOf(p);
                         return (
                           <Button
@@ -95,6 +96,7 @@ function Archive() {
                     </div>
                   ))}
                 </div>
+                ))}
               </TabsContent>
               <TabsContent value="workflows" className="mt-10">
                 <ArchiveWorkflows />
