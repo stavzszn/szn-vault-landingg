@@ -1,12 +1,14 @@
-import { galleryPhotos } from "@/lib/archive-photos";
+import { contentItems } from "@/lib/content-items";
+
+const heroPhotos = contentItems.filter((item) => item.kind === "photo");
 import { CHECKOUT_URL } from "./Pricing";
 
 const fan = [
-  { photo: galleryPhotos[0], rotate: "-rotate-[9deg]", lift: "translate-y-6" },
-  { photo: galleryPhotos[1], rotate: "-rotate-[4deg]", lift: "translate-y-1" },
-  { photo: galleryPhotos[2], rotate: "rotate-0", lift: "-translate-y-2" },
-  { photo: galleryPhotos[3], rotate: "rotate-[4deg]", lift: "translate-y-1" },
-  { photo: galleryPhotos[4], rotate: "rotate-[9deg]", lift: "translate-y-6" },
+  { photo: heroPhotos[0], rotate: "-rotate-[9deg]", lift: "translate-y-6" },
+  { photo: heroPhotos[2], rotate: "-rotate-[4deg]", lift: "translate-y-1" },
+  { photo: heroPhotos[6], rotate: "rotate-0", lift: "-translate-y-2" },
+  { photo: heroPhotos[9], rotate: "rotate-[4deg]", lift: "translate-y-1" },
+  { photo: heroPhotos[13], rotate: "rotate-[9deg]", lift: "translate-y-6" },
 ];
 
 export function Hero() {
