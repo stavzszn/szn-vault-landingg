@@ -51,7 +51,6 @@ export function CharacterSection() {
             Bring your AI character into an existing video, with the original
             movement, camera and setting intact.
           </p>
-          <p className="mt-6 text-[12px] text-nav-muted">Motion control workflow included in the vault.</p>
         </div>
 
         <div className="mx-auto flex w-full max-w-[440px] items-start gap-3">
