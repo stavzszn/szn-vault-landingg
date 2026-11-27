@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { galleryPhotos } from "@/lib/archive-photos";
+import { landingArchivePhotos } from "@/lib/landing-archive-photos";
 
 function Row({ reverse = false, offset = 0 }: { reverse?: boolean; offset?: number }) {
-  const list = [...galleryPhotos.slice(offset), ...galleryPhotos.slice(0, offset)];
+  const list = [...landingArchivePhotos.slice(offset), ...landingArchivePhotos.slice(0, offset)];
   const doubled = [...list, ...list];
   return (
     <div className="flex overflow-hidden">
