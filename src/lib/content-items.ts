@@ -21,6 +21,7 @@ import v1 from "@/assets/content-archive/clip-01.mp4.asset.json";
 import v2 from "@/assets/content-archive/clip-02.mp4.asset.json";
 import v3 from "@/assets/content-archive/clip-03.mp4.asset.json";
 import v4 from "@/assets/content-archive/clip-04.mp4.asset.json";
+import v5 from "@/assets/content-archive/clip-05.mp4.asset.json";
 
 export type ContentItem = {
   kind: "photo" | "video";
@@ -43,6 +44,7 @@ export const contentItems: ContentItem[] = [
   { kind: "video", src: v2.url, alt: "AI character with sunglasses on her head pointing at her temples" },
   { kind: "video", src: v3.url, alt: "AI character in a black corset and denim skirt on a night street" },
   { kind: "video", src: v4.url, alt: "AI character in a pink lace-trim top on a night street" },
+  { kind: "video", src: v5.url, alt: "AI character in a white one-shoulder top and cross necklace beside a red truck" },
   { kind: "photo", src: p11.url, alt: "AI character in a grey cap and white cross tank top on a city street" },
   { kind: "photo", src: p12.url, alt: "AI character in a yellow Brazil jersey and cap on a sandy beach" },
   { kind: "photo", src: p13.url, alt: "AI character lying down in close-up wearing black glasses and a nose ring" },

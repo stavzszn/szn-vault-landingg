@@ -14,4 +14,5 @@
 - [x] Replace all Content archive photos with the ten uploaded images, keeping all ten accessible on phone and desktop.
 - [x] Add the nine extra uploaded photos to the Content archive, keeping the four-column desktop and two-column phone layout.
 - [x] Add the four uploaded video clips to the Content archive, playing muted in the grid and with controls in the viewer.
+- [x] Add the fifth uploaded clip and optimize all site images and videos without changing image pixels or video dimensions.
 
