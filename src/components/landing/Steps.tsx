@@ -1,7 +1,7 @@
 import { Section } from "./Primitives";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import wfEditBefore from "@/assets/wf-edit-before.png";
-import wfEditAfter from "@/assets/wf-edit-after.png";
+import wfFaceBefore from "@/assets/wf-face-before.png";
+import wfFaceAfter from "@/assets/wf-face-after.png";
 import wfCarouselBefore from "@/assets/wf-carousel-before.png";
 import wfCarouselAfter from "@/assets/wf-carousel-after.png";
 
@@ -16,19 +16,13 @@ type Step = {
 const img = (src: string, alt: string): Media => ({ src, kind: "image", alt });
 const STEPS: Step[] = [
   {
-    id: "image-edit", label: "IMAGE EDIT",
-    headline: "Edit any detail without a reshoot.",
-    body: "Change the outfit, the scene or the light while keeping the character at the centre of the shot.",
+    id: "faceswap", label: "FACESWAP",
+    headline: "Her face, onto another photo.",
+    body: "Explore new looks and concepts with your character’s face in the frame.",
     media: [
-      { group: "BEFORE", items: [img(wfEditBefore, "Original photo before the AI outfit edit")] },
-      { group: "AFTER", items: [img(wfEditAfter, "Photo after the AI outfit edit")] },
+      { group: "BEFORE", items: [img(wfFaceBefore, "Original photo before the faceswap")] },
+      { group: "AFTER", items: [img(wfFaceAfter, "Photo after the faceswap")] },
     ],
-  },
-  {
-    id: "image-to-video", label: "IMAGE TO VIDEO",
-    headline: "From a still image to a moving scene.",
-    body: "Give your images movement with an image-to-video workflow.",
-    media: [],
   },
   {
     id: "carousel-gen", label: "CAROUSEL GEN",
@@ -38,6 +32,12 @@ const STEPS: Step[] = [
       { group: "SOURCE IMAGE", items: [img(wfCarouselBefore, "Source portrait for carousel generation")] },
       { group: "GENERATED CAROUSEL", items: [img(wfCarouselAfter, "Generated four-panel carousel")] },
     ],
+  },
+  {
+    id: "image-to-video", label: "IMAGE TO VIDEO",
+    headline: "From a still image to a moving scene.",
+    body: "Give your images movement with an image-to-video workflow.",
+    media: [],
   },
   {
     id: "dataset-gen", label: "DATASET GEN",
@@ -58,7 +58,7 @@ function MediaView({ media }: { media: Media }) {
 export function Steps() {
   return (
     <Section id="workflows">
-      <Tabs defaultValue="image-edit" className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
+      <Tabs defaultValue="faceswap" className="rounded-[2rem] border border-nav-border bg-nav-pill/50 p-5 shadow-soft sm:p-10">
         <TabsList aria-label="Workflow steps" className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl border border-nav-border bg-nav p-1.5 sm:grid-cols-4">
           {STEPS.map((step, i) => (
             <TabsTrigger key={step.id} value={step.id} className="min-h-12 min-w-0 gap-2 whitespace-normal rounded-xl px-2 py-3 text-[11px] font-bold text-nav-muted shadow-none data-[state=active]:bg-nav-foreground data-[state=active]:text-nav sm:text-[13px]">
