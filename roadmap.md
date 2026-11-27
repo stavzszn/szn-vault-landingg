@@ -15,4 +15,5 @@
 - [x] Add the nine extra uploaded photos to the Content archive, keeping the four-column desktop and two-column phone layout.
 - [x] Add the four uploaded video clips to the Content archive, playing muted in the grid and with controls in the viewer.
 - [x] Add the fifth uploaded clip and optimize all site images and videos without changing image pixels or video dimensions.
+- [x] Keep the landing archive rows on disjoint photo sets and replace the character comparison clips with the new Source and Result uploads.
 

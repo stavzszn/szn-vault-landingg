@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
 import { ChevronsLeftRight, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import sourceClip from "@/assets/wf-motion-before.mp4";
-import resultClip from "@/assets/wf-motion-after.mp4";
+import sourceAsset from "@/assets/character-comparison/character-source.mp4.asset.json";
+import resultAsset from "@/assets/character-comparison/character-result.mp4.asset.json";
 import { Section } from "./Primitives";
+
+const sourceClip = sourceAsset.url;
+const resultClip = resultAsset.url;
 
 export function CharacterSection() {
   const [position, setPosition] = useState(50);

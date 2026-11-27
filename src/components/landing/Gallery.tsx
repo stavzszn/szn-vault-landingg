@@ -2,9 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { landingArchivePhotos } from "@/lib/landing-archive-photos";
 
-function Row({ reverse = false, offset = 0 }: { reverse?: boolean; offset?: number }) {
-  const list = [...landingArchivePhotos.slice(offset), ...landingArchivePhotos.slice(0, offset)];
-  const doubled = [...list, ...list];
+function Row({ photos, reverse = false }: { photos: typeof landingArchivePhotos; reverse?: boolean }) {
+  const doubled = [...photos, ...photos];
   return (
     <div className="flex overflow-hidden">
       <div className={`flex w-max shrink-0 gap-4 pr-4 ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
@@ -12,8 +11,8 @@ function Row({ reverse = false, offset = 0 }: { reverse?: boolean; offset?: numb
           <img
             key={i}
             src={p.src}
-            alt={i < list.length ? p.alt : ""}
-            aria-hidden={i >= list.length}
+            alt={i < photos.length ? p.alt : ""}
+            aria-hidden={i >= photos.length}
             loading="lazy"
             draggable={false}
             className="h-[260px] w-[190px] shrink-0 rounded-2xl border border-nav-border object-cover sm:h-[380px] sm:w-[270px]"
@@ -34,8 +33,8 @@ export function Gallery() {
         </h2>
       </div>
       <div className="mt-10 flex flex-col gap-4 [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
-        <Row />
-        <Row reverse offset={3} />
+        <Row photos={landingArchivePhotos.filter((_, index) => index % 2 === 0)} />
+        <Row photos={landingArchivePhotos.filter((_, index) => index % 2 === 1)} reverse />
       </div>
       <div className="mt-10 text-center">
         <Link
