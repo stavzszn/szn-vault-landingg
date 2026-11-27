@@ -26,7 +26,7 @@ export function Pricing() {
         <div className="self-center">
           <img
             src={showcaseImg}
-            alt="AI-generated blonde woman in a cream fur coat taking a mirror selfie in front of SZNVAULT graffiti"
+            alt="AI character with long black hair and a black tank top covering her face with her hand while holding a glass pipe indoors"
             className="max-h-[660px] w-full rounded-3xl border border-nav-border object-cover object-[center_25%]"
           />
         </div>
