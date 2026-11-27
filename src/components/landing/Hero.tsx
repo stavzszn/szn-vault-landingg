@@ -17,20 +17,12 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 glow-soft" />
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8">
         <div className="flex flex-col items-center text-center">
-          <p className="animate-rise rounded-full border border-nav-border bg-nav-pill/60 px-4 py-1.5 text-[11px] font-bold tracking-[0.18em] text-nav-muted">
-            THE AI INFLUENCER VAULT
-          </p>
-          <h1 className="animate-rise mt-7 max-w-5xl text-5xl font-extrabold leading-[1.02] tracking-[-0.03em] text-nav-foreground [animation-delay:120ms] sm:text-7xl lg:text-8xl">
+          <h1 className="animate-rise max-w-5xl text-5xl font-extrabold leading-[1.02] tracking-[-0.03em] text-nav-foreground [animation-delay:120ms] sm:text-7xl lg:text-8xl">
             Your AI influencer,
             <br />
             <span>built in a weekend.</span>
           </h1>
-          <p className="animate-rise mt-7 max-w-xl text-[15px] leading-relaxed text-nav-muted [animation-delay:240ms] sm:text-base">
-            The full playbook for creating, training and monetizing
-            hyper-realistic AI models. No coding, no agency, no monthly
-            software bills.
-          </p>
-          <div className="hero-actions animate-rise mt-9 flex flex-col gap-3 [animation-delay:360ms] sm:flex-row">
+          <div className="hero-actions animate-rise mt-11 flex flex-col gap-3 [animation-delay:360ms] sm:flex-row">
             <a
               href={CHECKOUT_URL}
               target="_blank"
