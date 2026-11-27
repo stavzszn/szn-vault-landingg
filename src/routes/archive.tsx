@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { contentPhotos } from "@/lib/content-photos";
+import { contentItems } from "@/lib/content-items";
 import { ArchiveWorkflows } from "@/components/ArchiveWorkflows";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ const collections = [
 ];
 
 const title = "The Archive — AI Content & ComfyUI Workflows | SZNVAULT";
-const description = "Explore AI character photos and eight ComfyUI workflow showcases in the SZNVAULT archive.";
+const description = "Explore AI character photos and clips plus eight ComfyUI workflow showcases in the SZNVAULT archive.";
 
 export const Route = createFileRoute("/archive")({
   staticData: { sitemap: true },
@@ -36,8 +36,8 @@ export const Route = createFileRoute("/archive")({
 function Archive() {
   const [collection, setCollection] = useState("content");
   const [open, setOpen] = useState<number | null>(null);
-  const photos = contentPhotos;
-  const n = photos.length;
+  const items = contentItems;
+  const n = items.length;
 
   useEffect(() => {
     if (open === null) return;
@@ -50,7 +50,7 @@ function Archive() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, n]);
 
-  const current = open === null ? null : photos[open];
+  const current = open === null ? null : items[open];
 
   return (
     <div className="min-h-screen overflow-x-clip bg-nav">
@@ -61,7 +61,7 @@ function Archive() {
             The <span>archive.</span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-center text-[15px] text-nav-muted">
-            Every photo here came straight out of SZNVAULT workflows.
+            Every photo and clip here came straight out of SZNVAULT workflows.
           </p>
           <Tabs value={collection} onValueChange={(value) => { setOpen(null); setCollection(value); }} className="mt-7">
             <div className="flex justify-center">
@@ -79,17 +79,21 @@ function Archive() {
                 <div key={columns} className={columns === 2 ? "grid grid-cols-2 items-start gap-4 md:hidden" : "hidden grid-cols-4 items-start gap-4 md:grid"}>
                   {Array.from({ length: columns }, (_, col) => (
                     <div key={col} className="flex flex-col gap-4">
-                      {photos.filter((_, i) => i % columns === col).map((p) => {
-                        const i = photos.indexOf(p);
+                      {items.filter((_, i) => i % columns === col).map((item) => {
+                        const i = items.indexOf(item);
                         return (
                           <Button
                             variant="ghost"
-                            key={p.src}
+                            key={item.src}
                             onClick={() => setOpen(i)}
                             className="block h-auto w-full overflow-hidden rounded-2xl border border-nav-border p-0 hover:bg-transparent"
-                            aria-label={`Open photo ${i + 1}`}
+                            aria-label={`Open ${item.kind === "video" ? "clip" : "photo"} ${i + 1}`}
                           >
-                            <img src={p.src} alt={p.alt} loading="lazy" className="block h-auto w-full transition-transform duration-500 hover:scale-[1.03]" />
+                            {item.kind === "video" ? (
+                              <video src={item.src} muted autoPlay loop playsInline preload="metadata" aria-label={item.alt} className="block h-auto w-full" />
+                            ) : (
+                              <img src={item.src} alt={item.alt} loading="lazy" className="block h-auto w-full transition-transform duration-500 hover:scale-[1.03]" />
+                            )}
                           </Button>
                         );
                       })}
@@ -108,10 +112,14 @@ function Archive() {
 
       {current && open !== null && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-[60] flex items-center justify-center bg-nav/95 p-4 backdrop-blur" onClick={() => setOpen(null)}>
-          <img src={current.src} alt={current.alt} className="max-h-[88vh] max-w-full rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+          {current.kind === "video" ? (
+            <video key={current.src} src={current.src} controls autoPlay muted loop playsInline preload="metadata" aria-label={current.alt} className="max-h-[88vh] max-w-full rounded-2xl" onClick={(e) => e.stopPropagation()} />
+          ) : (
+            <img src={current.src} alt={current.alt} className="max-h-[88vh] max-w-full rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+          )}
           <Button variant="ghost" size="icon" aria-label="Close" onClick={() => setOpen(null)} className="absolute right-4 top-4 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><X className="size-5" /></Button>
-          <Button variant="ghost" size="icon" aria-label="Previous photo" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + n) % n); }} className="absolute left-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronLeft className="size-6" /></Button>
-          <Button variant="ghost" size="icon" aria-label="Next photo" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % n); }} className="absolute right-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronRight className="size-6" /></Button>
+          <Button variant="ghost" size="icon" aria-label="Previous item" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + n) % n); }} className="absolute left-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronLeft className="size-6" /></Button>
+          <Button variant="ghost" size="icon" aria-label="Next item" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % n); }} className="absolute right-3 rounded-full bg-nav-pill text-nav-foreground hover:bg-nav-pill-active"><ChevronRight className="size-6" /></Button>
         </div>
       )}
     </div>
