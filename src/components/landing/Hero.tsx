@@ -18,9 +18,11 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8">
         <div className="flex flex-col items-center text-center">
           <h1 className="animate-rise max-w-5xl text-5xl font-extrabold leading-[1.02] tracking-[-0.03em] text-nav-foreground [animation-delay:120ms] sm:text-7xl lg:text-8xl">
-            Your AI influencer,
+            Run your own AI
             <br />
-            <span>built in a weekend.</span>
+            influencers with
+            <br />
+            <span>SZNVAULT.</span>
           </h1>
           <div className="hero-actions animate-rise mt-11 flex flex-col gap-3 [animation-delay:360ms] sm:flex-row">
             <a
