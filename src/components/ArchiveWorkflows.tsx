@@ -5,8 +5,8 @@ export function ArchiveWorkflows() {
   return (
     <div className="grid grid-cols-1 gap-x-7 gap-y-12 md:grid-cols-2">
       {archiveWorkflows.map((workflow) => (
-        <article key={workflow.id} aria-label={workflow.title} className="min-w-0">
-          <div className="relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-workflow-preview">
+        <article key={workflow.id} aria-label={workflow.title} className="workflow-card min-w-0">
+          <div className="workflow-card-preview relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-workflow-preview">
             {workflow.preview ? (
               <>
                 {workflow.preview.kind === "video" ? (

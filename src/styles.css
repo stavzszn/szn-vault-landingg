@@ -120,6 +120,7 @@
   --nav-border: color-mix(in oklab, var(--silver-slate) 38%, var(--midnight-mist));
   --glow-soft: radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--nav-foreground) 7%, transparent), transparent 70%);
   --shadow-soft: 0 30px 80px -30px color-mix(in oklab, var(--nav-foreground) 14%, transparent);
+  --shadow-workflow-hover: 0 18px 32px -10px color-mix(in oklab, var(--nav-foreground) 15%, transparent), 0 8px 20px color-mix(in oklab, var(--midnight-mist) 70%, transparent);
   --brand: var(--silver-slate);
   --brand-foreground: var(--midnight-mist);
 }
@@ -177,6 +178,34 @@
 }
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
+}
+.workflow-card {
+  transition: transform 260ms ease;
+}
+.workflow-card-preview {
+  transition: box-shadow 260ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .workflow-card:hover {
+    transform: translateY(-6px);
+  }
+  .workflow-card:hover .workflow-card-preview {
+    box-shadow: var(--shadow-workflow-hover);
+  }
+}
+.workflow-card:focus-within {
+  transform: translateY(-6px);
+}
+.workflow-card:focus-within .workflow-card-preview {
+  box-shadow: var(--shadow-workflow-hover);
+}
+@media (prefers-reduced-motion: reduce) {
+  .workflow-card, .workflow-card-preview {
+    transition: none;
+  }
+  .workflow-card:hover, .workflow-card:focus-within {
+    transform: none;
+  }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
