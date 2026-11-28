@@ -24,8 +24,14 @@ const STEPS: Step[] = [
     headline: "Her face, onto another photo.",
     body: "Explore new looks and concepts with your character’s face in the frame.",
     media: [
-      { group: "BEFORE", items: [img(wfFaceBefore, "Original photo before the faceswap")] },
-      { group: "AFTER", items: [img(wfFaceAfter, "Photo after the faceswap")] },
+      {
+        group: "BEFORE / AFTER",
+        compare: true,
+        items: [
+          img(wfFaceBefore, "Photo before the faceswap", "BEFORE"),
+          img(wfFaceAfter, "Photo after the faceswap", "AFTER"),
+        ],
+      },
     ],
   },
   {
