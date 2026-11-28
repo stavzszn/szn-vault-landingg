@@ -8,14 +8,11 @@ export function ArchiveWorkflows() {
         <article key={workflow.id} aria-label={workflow.title} className="workflow-card min-w-0">
           <div className="workflow-card-preview relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-workflow-preview">
             {workflow.preview ? (
-              <>
-                {workflow.preview.kind === "video" ? (
-                  <video src={workflow.preview.src} controls muted loop playsInline preload="metadata" aria-label={`${workflow.title} example`} className="relative z-10 h-full w-full object-contain" />
-                ) : (
-                  <img src={workflow.preview.src} alt={`${workflow.title} example`} loading="lazy" className="relative z-10 h-full w-full object-contain" />
-                )}
-                <span className="pointer-events-none absolute left-3 top-3 rounded-full border border-nav-border bg-nav/90 px-3 py-1 text-xs text-nav-foreground">Example result</span>
-              </>
+              workflow.preview.kind === "video" ? (
+                <video src={workflow.preview.src} controls muted loop playsInline preload="metadata" aria-label={`${workflow.title} example`} className="relative z-10 h-full w-full object-contain" />
+              ) : (
+                <img src={workflow.preview.src} alt={`${workflow.title} example`} loading="lazy" className="relative z-10 h-full w-full object-contain" />
+              )
             ) : (
               <div className="flex flex-col items-center gap-4 text-nav-muted">
                 <Workflow className="size-10" strokeWidth={1} aria-hidden="true" />
