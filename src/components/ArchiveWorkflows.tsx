@@ -6,17 +6,7 @@ export function ArchiveWorkflows() {
     <div className="grid grid-cols-1 gap-x-7 gap-y-12 md:grid-cols-2">
       {archiveWorkflows.map((workflow) => (
         <article key={workflow.id} aria-label={workflow.title} className="min-w-0">
-          <div className="relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-nav-pill/40">
-            {workflow.backdrop === "purple" ? (
-              <div
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(120% 95% at 50% 50%, rgba(184,103,208,0.38) 0%, rgba(126,64,158,0.26) 55%, rgba(58,32,74,0.95) 100%)",
-                }}
-              />
-            ) : null}
+          <div className="relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-workflow-preview">
             {workflow.preview ? (
               <>
                 {workflow.preview.kind === "video" ? (

@@ -16,3 +16,4 @@
 - Scope hero phone adjustments to its named CSS hooks below the mobile breakpoint so the desktop composition stays unchanged.
 - Keep the archive photo collection separate from the workflow catalog using shared Tabs; show workflow cards with explicit example labels until real workflow screenshots are supplied.
 - Keep Content archive photos and clips in their own collection, independent of landing gallery photos, so archive replacements do not change other sections.
+- Use the shared workflow-preview color token for every archive workflow media frame so backgrounds remain consistent without per-item styling.

@@ -67,6 +67,7 @@
   --color-nav-border: var(--nav-border);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --color-workflow-preview: var(--workflow-preview);
 }
 
 
@@ -77,6 +78,7 @@
   --silver-slate: oklch(0.63051012 0.00498533 0.08926742);
   --clouded-pearl: oklch(0.85568352 0.00547603 286.28343671);
   --pure-snow: oklch(1 0 0);
+  --workflow-preview: oklch(0.14738753 0.01568062 304.205379);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
