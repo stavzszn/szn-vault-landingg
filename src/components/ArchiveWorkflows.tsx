@@ -7,12 +7,22 @@ export function ArchiveWorkflows() {
       {archiveWorkflows.map((workflow) => (
         <article key={workflow.id} aria-label={workflow.title} className="min-w-0">
           <div className="relative flex aspect-[6/5] items-center justify-center overflow-hidden rounded-lg border border-nav-border bg-nav-pill/40">
+            {workflow.backdrop === "purple" ? (
+              <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(120% 95% at 50% 50%, rgba(184,103,208,0.38) 0%, rgba(126,64,158,0.26) 55%, rgba(58,32,74,0.95) 100%)",
+                }}
+              />
+            ) : null}
             {workflow.preview ? (
               <>
                 {workflow.preview.kind === "video" ? (
-                  <video src={workflow.preview.src} controls muted loop playsInline preload="metadata" aria-label={`${workflow.title} example`} className="h-full w-full object-contain" />
+                  <video src={workflow.preview.src} controls muted loop playsInline preload="metadata" aria-label={`${workflow.title} example`} className="relative z-10 h-full w-full object-contain" />
                 ) : (
-                  <img src={workflow.preview.src} alt={`${workflow.title} example`} loading="lazy" className="h-full w-full object-contain" />
+                  <img src={workflow.preview.src} alt={`${workflow.title} example`} loading="lazy" className="relative z-10 h-full w-full object-contain" />
                 )}
                 <span className="pointer-events-none absolute left-3 top-3 rounded-full border border-nav-border bg-nav/90 px-3 py-1 text-xs text-nav-foreground">Example result</span>
               </>
