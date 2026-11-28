@@ -4,16 +4,20 @@ import wfFaceBefore from "@/assets/wf-face-before.png";
 import wfFaceAfter from "@/assets/wf-face-after.png";
 import wfCarouselBefore from "@/assets/wf-carousel-before.png";
 import wfCarouselAfter from "@/assets/wf-carousel-after.png";
+import wfEditOutfitBefore from "@/assets/wf-edit-outfit-before.png";
+import wfEditOutfitAfter from "@/assets/wf-edit-outfit-after.png";
 
-type Media = { src: string; kind: "image" | "video"; alt: string };
+type Media = { src: string; kind: "image" | "video"; alt: string; label?: string };
+type Group = { group: string; items: Media[]; compare?: boolean };
 type Step = {
   id: string;
   label: string;
   headline: string;
   body: string;
-  media: { group: string; items: Media[] }[];
+  media: Group[];
 };
-const img = (src: string, alt: string): Media => ({ src, kind: "image", alt });
+const img = (src: string, alt: string, label?: string): Media =>
+  label ? { src, kind: "image", alt, label } : { src, kind: "image", alt };
 const STEPS: Step[] = [
   {
     id: "faceswap", label: "FACESWAP",
@@ -34,10 +38,19 @@ const STEPS: Step[] = [
     ],
   },
   {
-    id: "image-to-video", label: "IMAGE TO VIDEO",
-    headline: "From a still image to a moving scene.",
-    body: "Give your images movement with an image-to-video workflow.",
-    media: [],
+    id: "image-edit", label: "IMAGE EDIT",
+    headline: "Change the outfit. Keep the shot.",
+    body: "Swap colours, clothing and details in a photo you already have — no reshoot.",
+    media: [
+      {
+        group: "BEFORE / AFTER",
+        compare: true,
+        items: [
+          img(wfEditOutfitBefore, "Photo before the image edit: white outfit", "BEFORE"),
+          img(wfEditOutfitAfter, "Photo after the image edit: black outfit with blue glove", "AFTER"),
+        ],
+      },
+    ],
   },
   {
     id: "dataset-gen", label: "DATASET GEN",
@@ -47,12 +60,35 @@ const STEPS: Step[] = [
   },
 ];
 
-function MediaView({ media }: { media: Media }) {
-  const cls = "block h-auto w-full rounded-2xl border border-nav-border";
+function MediaView({ media, bare = false }: { media: Media; bare?: boolean }) {
+  const cls = bare
+    ? "block h-full w-full object-cover"
+    : "block h-auto w-full rounded-2xl border border-nav-border";
   if (media.kind === "video") {
     return <video src={media.src} autoPlay muted loop playsInline aria-label={media.alt} className={cls} draggable={false} />;
   }
   return <img src={media.src} alt={media.alt} loading="lazy" draggable={false} className={cls} />;
+}
+
+function CompareView({ group }: { group: Group }) {
+  return (
+    <div className="workflow-compare min-w-0 sm:col-span-2">
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-nav-border bg-nav-border">
+        {group.items.map((media, i) => (
+          <figure key={`${group.group}-${i}`} className="relative min-w-0">
+            <div className="aspect-[9/16]">
+              <MediaView media={media} bare />
+            </div>
+            {media.label ? (
+              <figcaption className="pointer-events-none absolute left-3 top-3 rounded-full border border-nav-border bg-nav/90 px-3 py-1 text-[10px] font-bold text-nav-foreground">
+                {media.label}
+              </figcaption>
+            ) : null}
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function Steps() {
@@ -75,14 +111,18 @@ export function Steps() {
                 <p className="mt-5 max-w-md text-[15px] leading-relaxed text-nav-muted">{step.body}</p>
               </div>
               <div className="grid min-w-0 grid-cols-1 items-start gap-5 sm:grid-cols-2">
-                {step.media.map((group) => (
-                  <div key={group.group} className={step.media.length === 1 ? "min-w-0 sm:col-span-2" : "min-w-0"}>
-                    <p className="mb-3 text-[11px] font-bold text-nav-muted">{group.group}</p>
-                    <div className={group.items.length > 1 ? "grid grid-cols-1 items-start gap-5 sm:grid-cols-2" : "grid grid-cols-1"}>
-                      {group.items.map((media, i) => <MediaView key={`${step.id}-${i}`} media={media} />)}
+                {step.media.map((group) =>
+                  group.compare ? (
+                    <CompareView key={group.group} group={group} />
+                  ) : (
+                    <div key={group.group} className={step.media.length === 1 ? "min-w-0 sm:col-span-2" : "min-w-0"}>
+                      <p className="mb-3 text-[11px] font-bold text-nav-muted">{group.group}</p>
+                      <div className={group.items.length > 1 ? "grid grid-cols-1 items-start gap-5 sm:grid-cols-2" : "grid grid-cols-1"}>
+                        {group.items.map((media, i) => <MediaView key={`${step.id}-${i}`} media={media} />)}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </div>
           </TabsContent>

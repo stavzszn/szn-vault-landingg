@@ -317,6 +317,7 @@
   #workflows [role="tabpanel"] { margin-top: 24px; }
   #workflows [role="tabpanel"] > div { gap: 24px; }
   #workflows [role="tabpanel"] > div > div:last-child { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #workflows [role="tabpanel"] > div > div:last-child .workflow-compare { grid-column: 1 / -1; }
   #workflows [role="tabpanel"] > div > div:last-child p { font-size: 10px; }
   #hardware [role="tablist"] { gap: 2px; }
   #hardware [role="tab"] { font-size: 11px; line-height: 1.4; }
